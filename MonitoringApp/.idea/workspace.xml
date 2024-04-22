@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1ec9ffb5-130c-435f-b4cd-08e3c238bb3a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.MonitoringApp/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.MonitoringApp/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/.env.development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/aspnetcore-https.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/aspnetcore-react.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/AppRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/components/Counter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/components/FetchData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/components/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/components/Layout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/components/NavMenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/components/NavMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/reportWebVitals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/service-worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/serviceWorkerRegistration.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/ClientApp/src/setupProxy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/Controllers/WeatherForecastController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/Pages/Error.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/Pages/Error.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/Pages/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/Properties/launchSettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/WeatherForecast.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/WebApp1.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/appsettings.Development.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp1/appsettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/angular-webpack/645c4fc999516663683abb291fca88758d8da3d5/0.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/angular-webpack/645c4fc999516663683abb291fca88758d8da3d5/index.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/009d38a328fc9d9bed61f7639f386de6e96d12213fbb286c2289caeab554a5b7.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/01c7f6745738b5981861cc376e4dfa2ef918d912804f4c930f1422b57fa18c3b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/02506c05091f55d1d5c9900a28e51a06963136cc5e61c45f183d14694a9d29ca.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/02c17f59f56ec659c23e1d816b791e64d09e5cf3c4c4bd2ecb0df33d2d7e16a3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/02eec2dd25f01bfcd7bc9c2e3774ca6c7e799e0eaf98c951211ef280b352fe48.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/075c31cd545e9111cc8d67a96e60749335fbec8f17a598e921707125c8a72e3c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/0771d1f0fbd4a6e46e1602833f19626067a7f4d6281d1770ba6a9ebbcff61545.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/09568fdd663531382c4fbd592b15b6bf4830c0da0a1b100a935e7821da47dfad.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/0a84dffefff8b4cc20a6457e189811bbdc9bfe63dffdc80b1c1b95e723bd90d2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/0bd98a456e8417bae9041a009bedb28c834c7682953cfcca65eba160b395e1b5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/0f423087bf8651d0093a699e76a4e53816f31bc98d4b6695dd253b87418336cf.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/0fc9f3987d2fb4dec4fb8cd8956aeaaaefa72ec3d7c072aaf5a418149776b74f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/125fcf2b1936eb2eb571e95c473ff0fdcb97be7b70f4585960079fe0bc21212c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/12c5e4f02ff8aaccf434616e9c6e9535d69c00919d52609e42bccb582cd32836.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/130b9853211ae7c95db171f536cc507536c9c586d217f483ce63df8791e356e7.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/13fff22f39e8736eb2a4ed9e940a19a2a486ec94654d196160e17c50049c3705.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/1859a38ce328d93a25bd6fd7a19baee9917f0975b11bf1738478a4216b35893f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/1bbebc97e8c49dcd5e777851a4ed0811503626713447cffdc4d4783898c8be1d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/1ccdea28eb5b04029f932e004f8aee639a06b6f8a681250e19730b5b3cd5c38a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/1d377c7a1df400de7229c4489d2dfaf23630ba07e00ef56842aab1388a3c3756.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/1df6c2645b1f604b9e88e0b447ee8f6ff73a448d86890cf0a94b87949ea6bc38.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/1e3a41fb0150df14468c0e0fa7dde7ba460b1283609ed8d100f8fe4addd5b39a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/2017bf51536cd8709f02e9ca10b09d9194c0a37969ac8fe1f106cc95b6fdfd51.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/20c187f03bb1569f51b0f8bb03e2e68ea1f087dedebc8f89b48a3493ea7269a1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/215168678924e14aa187ab577dfa10ec2aea65c884427e0dc7e369e0201c21f3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/219517536f515041b5de0b6d47617d470213d36a3d2fc3ee7905463b09cb34c6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/22687c5bfe9559894817516ab2135e8a782fc222c42fa9b1c83994e3d8195e92.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/22a9f8b8c718cdf04d2aeb0c2aed8cf8a4163b983cb3a319bd72ee6ce2d72eb2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/25adb28845f97ebdcb1c3dbff56eb85ea65cf335f17b8b3531161ac54946bfb2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/25b2b8868ce8783de05c6094defcc6e04dc6438464ccdc9f10f6e87eabf86001.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/269e713103d0cb772ed3987748ca984bcf1047f58f5206e8d260ce386e679456.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/275e49e347200aaa9f5b210a501be7a25b7387272f1465188302d1bd4b265f39.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/2a1b0f66976d1ea4b6427e18b340fd9373058707db4b29198c3843bb5f9e0da2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/2a54a0a96c5a4d85d18601d968476cac43d05385e7d31029b611c2a32553cab0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/2ca80ca9efb25c663439f5869bd443670a52e6ac5091bcdc9cee66cfc99b24f0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/2cc9ad75ca675c86a6e1cdb0ef47b03d8dcd6f4dbf2cc587509bf8531192c2ba.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/2d381dbadc2912e319262efec5d81ebce63896067a13139baa934d55baf88b8c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/2dcffb3ce27bf732cb4fccd0453fc3a1577a7fa7f391fcd38aa40726155a90a1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/2ed243acebf139f9ded9d3ba058d2ee84fc47c77050391d448e993970cdc4510.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/2f154ac822350e97cd6d970833ac1de560def61b066de813b71c2e3d78fda18b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/3010a2dde6871a84bf28abc62de5267cc0f3fe984360637878327e674ada0021.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/30ccf916cfd25fcd39d74e5e3974b8bf2cf899c19c2a00cfab5712bd18672f62.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/314c4ee8de453b8665d8fa419ffb79972899d03c08624e597d064452ee79d37d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/31542bee23edb8143d058d592243b0cb4d4a355021a3f21e04ca8b358366a220.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/328b471d79c835a62575a4fe3719a8e5658f797edb02969f0f29b2c81c7bab21.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/32f95e163da860b9627141b6ef3d92e861f66689fc778d0b5b235124b8fda681.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/33ddad6b7b80bc98b21a529dc468ad036c298670430725bae66cd386266e648f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/35ad089a7feea32f331f12e5a173d31f7320b3416dbf89dde77941d008d99ce9.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/35f7a89eaebb38c735d0bb346991aa9824413dfa8f7dd31c840cb09c6af71c0e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/36c55b63e5d4913b1634e975fa5b449ed97aa2b76ac4a53676cf1a2c316e96c9.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/37e8aae0f5d1ba7c41ae1c87c74144868c7d5f4f273fec643234b4f890b1ab80.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/38680b012571215df8e04f72b1f15b5a40bedccefe8f40fa2444d3952bb24acc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/38b3b27f89612a08da7e847468c0790f558d3dd5837bb6b10092cb3496189c9e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/38f313b5a2bc1a3cda618e4eb7960f545ef8d7ef46ff355d63f6b116bde87023.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/3b5116a7c977bd6811b3330eeba79d72850dcb7cfdfc4c558d18299d79a52bd0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/3d47dc1ac701e22ee85d844ddbbf9b8c1c3cae9ebf754f61db3e3742eac16e28.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/3d909b748f7df467b1d1e7457a9af985ab6a92621556797dd8e9674b748d80c9.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/4324a6a0cda809420d736d303bb9dadaa155236f0ae2f6852d6accd30984f394.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/44595dac85372b017a28032fa5d54683a8b3706bd79a2249b7c0aa891c7cf7a7.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/44c3eb06c5f600c2dde5216e5fe6f7ff150de70f4d46b3441bd1bff5a513be51.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/463c07d178e32dd7c553671996a930fe86a3099b9093c6aae9a127c53b87658c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/46dd293d5267214ee7dcf9f724454d6912c6ec5eff86c70c1d794e9d9535e0a5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/4b682dc0abcde98beb563e4d707193c17ea462b16d8e854a40910c2805782d27.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/4be5c8870215edf652a3c8652ebe56dbb16f93b67ae443be2eb98e6ccb088467.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/4c4153f1b69747676b3f135c69b018bcfb132b70c14c0d4f5e51b7f54f5daa01.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/4c4e14f6959d95ef53501dbee6df4a6569fb96b5864ca7ee1e24621ca39c0ca6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/4d748b1a03a9b0d262f3e9efd62bb099fb736987e428868b8876a1bf8a37d1e9.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/4e60ad6f432b4b85cabdd43460b547b744e8cb2a29a5c2153753a15b75bc7f62.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/4f6ef0b48b88bca5a7526982afe17e360f4c1b7b67693da8f4c94f797cc16817.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/4fd433091f0dcb8980806ad1d272e1e8bcf549fdf18be8b94a10462d96b3484f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/50fd9904d3d51ed638430a36012f7229eafde658167251995ee5aeb93b41001b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/527df77720f3e9e56eba93c432b7a1cdcbb16502884283853744d98619393064.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/534e54c05af726ac6ebe59a4f351a4faf6fdd355ba7ceda3c4c774d755f0b2ca.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/557edcdc0ab9ee650fbbde99ad600101acaeda78e6d5e8183a019126e765c530.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/558adc3c3862979a71e7db751ef1fc1970db2d2a4d1f2427399133df1696b684.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/55dfe651cfac3ec14bdb9714cc70c43f9f96943e32ccf261f04428b307ade518.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/56563052a9a991e7fc6e7081409b1f95d1cd27476cc4ec7e252764432fac03f3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/56badd3b4c7ce206b178d00e5c28b941d0d597fb4cf1ee45e28e6293e8d25b3e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/57fd4610b79c27972a3a8a3a9028f9753e07fce0b001ae480537ef5ab4b8eea9.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/589f5bd792126ec568cdfe696436ab422684469b415b724e5a067c0d0621a937.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/58b566c2b47afe34c97014ee401e235c0fcd234f351d7c5d202f5e4ab2de1fbd.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/58bc12f4b7cb330ab457ef66a2ee40e23d4f70b08afe9b32cc93fff8be0e4d1d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/5c5145c3c1dbe6a6740e3779ae315b60f45589b442cbdab52cf6065ed90afb7f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/5d17f7ad557c33f48ac0ad76efa3a2032fe8f33a90c4eee4438ba48b4211b24e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/5d791a983821ffda670c5305775393cdcabb87932aeb395bd4c00c064a8238d3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/5eabe195fb827502d1060baed3b799a7bc09861da43ee874ebf0170f84afc91a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/5eb8abd2ad5083e931f0992761a3f844f61ec410ab0eec9931ffedc0970b5c4c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/5efd4b77edde47aaeb724f1eab16e7363c77fb7781cec804b8eb5752070c4e9f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/5f02ec9a01c0183d9c93449a40c6fcd0d511919564953855dda0eb5d27dee305.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/5f5211c52622d7d48a935d34a75afc706bc1a96369b41f2e0f44e0d050ef5df6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/5fcd585d8cca5ec95297e5b36c082f2037bb5e3623432347e6569645ce867a22.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/60cd9645e7f7548929902805cffc1e6abd19e9f9e0d6c6952eaac226737c7e67.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/611c7f7c295ccfed1e03f69bd1d7e3ab70efe030eb5409d55acd68429a2d688b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/612f6a10179f31d12c8d594990db4efc097ebafa076c8db0a1258326da9f4442.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/638791ce6817c1c84b73858dad3b8382f71636c6cf47075e6797bfd81a32d74b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/649f5aaf7502a534b702d6228e7765909bd2114da5b558d4ee3af34bd21ae978.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/6807fe2a73d526999a0098d2e55b967ae696576ecc160c47728404d082e0fa27.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/69426d77cdb4428a1f01f0a082c2df05b2f2540667a3c011ff629c06dbc73f24.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/69bf69c2dcd6123fd17c8f9bf91141bd2043e0bd7399c9a8ace67a40aec068ff.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/6ae174ba75346e21f2f6ccc83c02bec2e73d98f30f398be343839b469cfa0c5f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/6c19daaa720e755bd88db78910f89ee874f0c1eafee8a12fee2a55d50ee39a4b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/6d044511360a5c7fb5adf31e3bc1ab0396da0d5f766296babc1cc591d922db9f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/6e2c77e2644cff87ba01d9f08c59f1280bce785e09ecb07605507574299ac00f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/6ea5321d2ec94cfcf64782b454ed3eed8b8fcaee61fc28ae510873a97a70ca33.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/6f29d268d6186119900dde74c6e088bce555e4babb7a524b9daba4c67853c4ec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/6ffae50df3e6b3205d7ee78a8d81d7062335249c38fb108a5a2078da6344f8cb.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/714758229817670e3bd681976203d11d5b1db0f392fcbf60c8796d7701e0d2a0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/71a35c7ba87a95fb0f84f239a42f8241d3ead059b63ace6bf32d40c26ed41816.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/7360d5c42ba3627db3f1a737fcb20ac27a47dd5cca4d627b57ae78052e5841ad.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/7383fd8971b1a3b0a955a71e54596ad02ce974df5b0831e6e410459217012961.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/75475ec3f74b59d9d15eef7cda490d30b6b3f7e2fb0bb79a6f51856bfaf1f701.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/7597b3aba58b1621c58aa0ae15a10f8d1e55ad1c0e2dc9cd0cf7bbcb2750226f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/75a29499d7a534ae66899c3ad77d2e10fd12f3d0940c94473c17709bbff04dc3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/75a74a638029ac05acd3c8c0fbdd98e41f40787b99700c9ead86375050ce7d71.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/7673fc5bb14c7ea096559093c82451aee0e66c40a248c455c0c6e3a92f9435bc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/7d471f52ac60a1d06e02edde0e9190f98d3a09172cfb9ec7dab93d575d1753a8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/7e51846dcdd07abb4ae2e3d068923df6cc5fe6099411b435719b7ad571774f6f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/7ef365f0bb00f4622ed74444d66fd481e8109874a139a5fdebf6db8a973eb7a0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/7f4ffdadcf489e9253354d5e7b6d9c499414940e1827c729449d3a4ac2e10a4a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/80c04de7a64edf00ecc08d6319a7861dea65d8f414492b7fcba1100e16241fab.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/80c8c2e0d3b0e63c7392af8af091af84ef2952a5384af28e0265588e1ccb6c43.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/80eb7feb47d8099ee3990c34315210d957d404488abe57b2eeaac8d571b829a6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/81416bcde7127469af7856ee4f1af7a6be78696545f0f10a5a48914f01465294.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/820d5aa85c2a6288a3a67fa7149e5f75d500d98f2c507e39bb85e8fb4be252f2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/82572e29ee748369cb89b2466baf1b0bfcd1aba61ce04d3753cf3c5144cb6b18.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/84f0a9bf844aee031feb39a15e5996c8379c1501daeacdc96543f9dfe3cc0d6b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/8595b069f3a5b8330ffb465bd5ceaec86f8d0876b10b2f0e76f75f562eada348.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/86031e7fab03dfbe39ef852b31a7e552942021ba6fce2868231bd4343284cf9b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/87a169fc2232fa6c506ee238d224a4e56e371d975da1b825d84fec26a9813a29.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/87a220fba69978c878665d75d00195d04cd1069cbe5e0430cd348b06c4d08f83.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/87cde03b88b1d550bbf22098ec22b49bc7b63dffde80a6a5ed55af0c0eb045e7.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/8963a7b0ab6bbd9b70a66b92f5b732a359a6972faf146a96f79b912b35650ef8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/8c18e1dd7b9cc9da8e4ff0428239a1e5138cc0c276c34ba1f03198f2d87a0271.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/8cdb2003208b958344a9f00a8047d1884812297980ddf41da276b0d9ee4fcce8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/8ce5d9855cc8d405b80d7371fabadd07065a1d78156905ce31d034517f837c17.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/8d6f4eda9bed8b1f747c88dbe89b3b9480906c8ef4c43a24cbd61e80fea33c97.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/8ee6933d5d0a484414c14a074315c9cf60fcebc057f61dd4a81e4c3b2d70e2d4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/8f72d2ed49f1fcae28b62b139064b0ef4d6c448564f6120ea07d3e198cef60af.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/904b41e0d81d54a454ca0b3e93067d6ab3aa25268a2252f9862c91bb7da19f66.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9087bfae0ef63940b1aea0ce59bf8a4229d4bf71f0f0ef73c5e4aeca6b00f2a2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/90ed0f91047c65d65a5f03548bea3e1318f18e889ec3f0ce5ccaf32a23be143a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/90efb39d7ba6d9897db289e5289f64ae29129d3fdee4e8368afe22c67faf7fa4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9101e434be7a33c5111091ca2a4c8d8026255ece8409137e7fd67b5c8e46186d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/944655b3f6fb2fc701274156b9e55577f49f4a8bbef2c757c8c44c2587b41c0f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9495d3ea68fe374448caa545a55a09d6870c8885701e0a3d3741caa1b233181d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9537479cf9de062f94249e36b2ec4f04fa5ace078e1fcf7bc787c85c83482422.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/95b6eedcbb436da4c0ba7c71400e8079d8353620fe0106528f28293c4644be27.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/95cc128e54dcc26356855a9ca591e8c4474451de34d159c380b6cea6cba832c8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/97cc06f81efcf4b938a28092e5dc7008ca2f0440347a44a303222f84195b3c56.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/99a69cecc72123c6a5ed3f0924151d5d2ebe6985c27596769cd1b4a13c1f6061.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9a0211327f8c8bce7f0f68e32dd861d1d92c347b2c28c6166ff53293ad2ff6a5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9ac901214498024da67b945a56a63f0ed8610169a1dcebd943dd8812409ef46e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9b6442376c1fb0cd8c69ef83d364b4638b3dca6a6f8c813d101cde8c58621e83.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9ba488455db5bb7581420af272a2cb4fb1e924284bd5bb881c849b0fbf383726.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9c5334e4e3a0a17940d6594fb3cfb2b27114b976d752372522d226848426ad0a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9d5165f024c82c97229e2c287462de16a7b33ff52e005aebdb036dab6f92d17d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/9ee85aec3149dfd01074e74c3d0c4182afa09895024ee8521a5a658032d84019.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/a17f58ba667cd922ade5ee04c9e0a6aa562c28070be18f3624bb40061c614ad6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/a2e6f84fe8fab1e430563344f6797675c0d08ba5d7709d64b012d3dd34dd5b29.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/a38e93e5f8a08dffdac6ec487358a6ecbcb103c266112bebd02a3cdc7424d716.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/a5558d75ef1f62257359fb5d0fbc2917918cb274429b5cc3086eb7869d21fda3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/a71fea9af91cb5cc9ac961c3dc7897877b170e92db07f60dd541636e7e9c7734.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/a81decc0bf1bf5d78fe58dd135767ffd3dcca3ac7ee829edf79ec24ea4f7836a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/a848eaebcc9ea92859a17ad52965fe1cae7cffeee98c9e9134953ff02073c701.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/a8da7474d995375e28ca6a9a238a87aadf1634a58176a4c84bb46917f3f7a025.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/a99233a2a483d029d42ae8c94fafbed15cdd6d47c6456bdeaab2cbe503f29e7c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/aa62fcbe0dfa9663fb7673d20f4a73f45b15d3bfe49149042399b264c05aaee4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/abb90d5c5cc07deb34df378f7f0f4cf0ffdc14c5f91077866db44bd1637e70cb.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ac5be4128b8f4b5e4a211a3727ed42c8b467109a60792ad222bb90046fe22875.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ae852a86a92db7cd1356625344effb7adeac1aa851f6260271d68d400f5d574a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/af4127ef06006a382e0adfc33a33d94f83344a010944559e5f8e76d5fe75caf9.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b1a8ba4dc85dd445a7ff49aec04d2afb86b0b5fa145fb242d8fb0a0175385b07.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b221c9439ee80ee69fbcd88aecb22881c43f980089c7d0f0b6dfc9cce684cfd1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b25a5998a26765f9186871f651213dcf9ced4a12c02ca775d65e632d35cc37bc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b33525ab70bbbccd15b7783540054a3ec7e758d96a35b561beab32426caf0029.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b35506d1670eacf5e6d38a4f141bb4feb00e3024062bfa5fff73c689871be04a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b3b4975b49d0e14c799cd755337d8e1d8e9b1885d0766e646cccd6b9f663d81d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b3fad22022963362aae4257ae6bf2753591482ba96b31c1ebcd6fb263e7d6bc6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b424c1921c283598f75a3c396c8ef2deabab2561fe9122183d8994cbce968a51.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b4de5de1541f101a7e178c328bc135efadc67d86a1ed1a5365e3afab703afc43.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b63805fd9fe800b2bbfe063bcec190eb217431954e5b928aa06703b5e11929bf.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b668710651a818fddd9504ca32ed0c16af50eb7c10064deeeebce64aad2f93ba.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/b69d498d56a05c75dc2a74919fb927083812cc2c0b59ad390e9cb8173fe95a38.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ba482344c90d12111620f36d0f9a3f3b39be5a79eb963c58d76052fc075793d1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ba4cc57a2690ca7670243f51345c28b215141b84de3de63c4aae0403f6a51057.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/bc86d19d0fe6ec2e86da1000f9e2a9b4a8d23a1e187a305ccc30750561749372.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/be225c9af7a9fde7b7e0a2198c146bce2ade110a6a57344527f7178a38febc2f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/be3559357083c22800f19327d65f812f9ec66a183fdebf0879e149759c3b10b8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/be726775e70084f9ebd5fc3e0c68bfd2c4dc826893e5aa39b4dfa65780aa0678.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/be90a27a8acd154fbcdfc6193a73e18c8f610f78e9f6f51b17de249b73ed3611.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/bf0c0942c2463b3339e23925b5c1bcd8ac3bbb76a9469580157d494048ef1785.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/bf301a4d703e65a934a91b6046db95774462618fc87fd45df7f5f6fabef2aad2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c0c74bc3380d7a7b27445c38923ee1c1cb1026b6480e7df7d8f789929a5b7c07.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c1988441520d47a86c61e90d3db88bd2dd6985f9b41731e79765843a8444457c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c2907af20991a5d3f70e24c229cef41ad72c2942679ba1e7da7f3fcb8d7643ba.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c3e34ecc407999a1e8dd10b8c32cc694ddb4760b0fbce97bfe19cfc5b9b5e643.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c40fd4ceb8caac42e598c7d42b9d946d3da4ea24ba3f7089a3998627934a3e93.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c59ce52d55846a4708cbd47de167c2e5d0097885c01d7f77a38be21d7ed90a0a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c5bc6e2bd69e15a998c77b30714b0294a8744c72149c7307aaaf116a44ef37c0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c6574b15e46e3ddf10bbf6d9b60e10b9ddb2bcc4a298254a8daaf26dab78eee9.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c66f5bae686cd5ac569671aa9f45e6ad9fcfcdce044400863eddabcccab902cb.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c8baec4eb96746b87054721cd942cff495acb449c931589cd8810a0892a047f9.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c9c1c0fa90ac387e31a9717c09d3355b61d533dc4fcc836b655dcf98d30b100b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/c9fad3119924bfe177f825b75320cb81215ff4d39b965162d34c252c5f9fe2d5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ca6da046d2f155207e0e25ba79515220536cbb16db4e063c53a47032f8af71c9.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/cb8367a0c79ddeb18e826b81d7eb05ed44520d69024fb65e7d0629496b1ba320.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/cbc1981516706e654f696440e3d70ba8e53af7a51e7d4ae5b1370da045eec00e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/cc52b24ef63a22babd9c29b0d91e8951f0108a7f37d8015f509549b93ca568b6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/cd2d7b55da3025f1793ac4fa873f15f6f5a20a7d763b025a6d468a46076b44b2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/cf743bad5d6c3f3bbdcb75352b65683121473a197509e9627e26cb35813b80ca.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d0038c2ef5af8221d2543ee2ebcf08c596e779939d550b3a528cdd8a4f3883fc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d142a21839c855d95362ba0ded5a66b2931a52073fa57dda0927a989707371e2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d18f507857d63ff361d529c46039f0724d6329a424198fa439efa1d1f261d97f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d334170704a5c359bb54879365362a0b6900143e2e0c13d9286d9b2b0b322e01.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d34357d02d34b391145b5845d4db8f246e0f350379938ff7a0da3560ed016109.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d389f8875dc5444cdc611766fa4c00cd97080a47621c980a40a440ec99e69879.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d441c48bdbced939d973de31d5a1c7d5bdd7704bb7f4a7a099107bd211519aa0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d4f23435874810cac49e478541efc72a61eb5b856dc96965d073c16c2ef6ba19.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d4fc59b5083253add6344df57f4aa3a1115b6d183707688d8570acb5a99eb21c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d5ce6cba229b94ef870fa9511b7914663ea7b60cba18146187e8f12f168f5568.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d63430e87ff2dc0dc3104c4d660edfc98844078e4d98f3ed4a995d922f97675b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/d7d28b5369cb8a6d84f03c2ccde0703d940a194589af27a4ae9729dc049c948d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/daa2f7ef9cee76b77bfc2c1c1d3ef39acdd00551d8ac63651cde7ec47a48ee52.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/dc5ada3016917be80d5709baab94ddc9f648a0b54ed9985fa722419621a0e2be.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/dddac54f7f1854ad7e18f82dae41a0509fae7b139983437b8e3a0b17bde9c72e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/dedf316e7245879baa3aa7ba753d1d9998f06c193e9f93916385c392b52995f2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/df8d7bb4cc460cea57fbc3ce2a7de6ef1ff73b8ff6a9a404def4990c939bc9d6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/dfc539e4492a6b9db4f37f390f56ec13b090971e9e52bb20b1afaa608e493b3d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/e0f4ef15945bbe06b16702286f0d7fa6de457994005a6484f597a355f56a8514.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/e1140b6b5147d1b0c46a655593198b95d1254a0a6a2b5850d506ed690f3cd462.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/e1e1840a75c6e3e4888c66e20776b7d805b55ec68467e34627fdc76eeb294a24.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/e59f542609f9f334be857840710801d7ddbc22c7b78b19b9f6bad237bba7a5a6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/e98c82f96a675a00eb1f3ff101a0bb927ab769a2b4ed9d3c507c0445378cd2e2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ea0dd113e7ff2215b0e52998de4766a014f3b5bf4266cfe75cdbc66a1c5ff5e1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ebdda48862f33c0407f6bc3123dcd1eefd17353d085012f17a2bff877444b714.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ee195a825c40cb519aadde2e52e6d5f034d92487eb925868c2b8a91218a4051f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ee9485e1fcc3d25e4a6b7f8d4e09e1c493d3bb4726f1abad33822161bb38c241.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/eee85630f1f22911beb0ed2091c57feb63ef9c69ffd3a6ade1275f788be855d3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/efb1ca5f99f3753b45ce032174bd5bd9835ad090a08fe9ccb5c0667b192d8fc3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f08c03326ae823a1b2e9757ef97091a527af9d25803126d87aacec8b9570c8cc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f0a0e7499545f37b922eef4cb297596848366341a7b314c8b1cc0752f293dfa8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f0aafa58824e846cbf5602d4a39e51ac1f8e33d935cd392635454459ae7c5b8e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f10b2b802ecb2d9aef1af44c654243eaf469b1c21c5d8e1febc82a9e6c59babd.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f166e2783f08a606e792f43b66f8564ad250327009be1f1970c1a27987a8540b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f2d5e383a3c83daff05648f340b5b7589ed2e6346fd798d357714351dfcafad7.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f484162ce7bfea73bef7fd664b26e07e7c5b2be90580e94a3d422d8d8058cbd4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f49f5a89b84878086c5562500abcc1958a33bef16c5c209e7d82585ae5138d76.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f4dee32ad49221a505b3f385e5b9a4a2a7d19afdbe48042c60137fa910d3583d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f5c69b2f267e9ac842b82eb94c8f062786c43fbe7256a0c544f177d46a4807ef.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f7e885639a4f9af2e6c8eeb87f04d16b4c16be694c3d0ced39375873de4e7c22.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/f8ee47db2085ba28f55705f8ecea127a1d6fee99a6fd9064d47bdef3e9c7a28c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/fa0575b9a6e33b9634c47e15f7e8d61fdbe08b412dcda19810bd76c76d91406f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/fab017a4897ee89422198511ea84b679cfdde09671ca5993e37b31d348d1924c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/faef3e97d6ed856c1b378411a49e513b83e896bcd2114026d37189fe8ef7e25f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/fb8cb234a3cb70b34fd1bdefeef563d09da304d61602b92465860729f67b4617.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/fbfe9c48118b10d04a3d578b530747319cd688b51916aef20fcd612a7701b05a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/fc0cc8a4038ba96ce122a4c79dbd6a566240b13433ab89a35c1169e3acab3fcd.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/fc9b88076daba45f7d140995c3f67371ac51b139efa25b268f9e3523aa53ec42.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/fd40dd0ce086bec5f9b2e666fd5a79720719c521f077ed903786eccaf4a698fa.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/fddb0d312c92e190211f8db848a54c50ce4101de60daa5f4441ef045b3cef3a5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/fe42b227f33d7a7e87ceccf36c82af534c532cce6cae2ba98d1528787aa11352.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/fe9bf816012010570cdc538ada6a9ecb830757caf93cd10856fe53bd727f1800.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ff658be2c9833de68e6cc84525e0ad5714e9ae3fb756652159fef669023287cc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.angular/cache/15.2.7/babel-webpack/ff6ef0f392b23f942090a49a4719b44c446975fb820c4174f090722be71443f6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/aspnetcore-https.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/proxy.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/app.server.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/counter/counter.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/counter/counter.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/counter/counter.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/fetch-data/fetch-data.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/fetch-data/fetch-data.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/home/home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/home/home.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/nav-menu/nav-menu.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/nav-menu/nav-menu.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/app/nav-menu/nav-menu.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/ClientApp/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/Controllers/WeatherForecastController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/Pages/Error.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/Pages/Error.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/Pages/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/Properties/launchSettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/WeatherForecast.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/WebApp2.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/appsettings.Development.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/appsettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp2/wwwroot/favicon.ico" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2fTJxLwbHSjftecbsGevLzI4II9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Stefan/Documents/GitHub/UBB-CS-Projects/Semestrul 4/ISS/UBB-ISS-Labs/MonitoringApp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\Stefan\\Documents\\GitHub\\UBB-CS-Projects\\Semestrul 4\\ISS\\UBB-ISS-Labs\\MonitoringApp\\WebApp1\\ClientApp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ec9ffb5-130c-435f-b4cd-08e3c238bb3a" name="Changes" comment="" />
+      <created>1713819381107</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713819381107</updated>
+      <workItem from="1713819381916" duration="107000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
