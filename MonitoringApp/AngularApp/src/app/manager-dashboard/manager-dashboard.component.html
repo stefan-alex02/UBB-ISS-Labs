@@ -1,0 +1,28 @@
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Attending time</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of attendances; let i = index"
+      [class.selected]="selectedRow === i"
+      (click)="selectedRow = selectedRow === i ? null : i">
+    <td>{{ employee.markedBy }}</td>
+    <td>{{ employee.start }}</td>
+    <!-- Add more cells as needed -->
+  </tr>
+  </tbody>
+</table>
+
+<div *ngIf="selectedRow !== null">
+  <textarea [(ngModel)]="taskDescription" placeholder="Add task description"></textarea>
+  <button (click)="assignTask()">Assign task</button>
+</div>
+
+<div *ngIf="successMessage" class="alert alert-success">
+  {{ successMessage }}
+</div>
+<br>
+<button (click)="logout()">Logout</button>

@@ -1,0 +1,5 @@
+<label for="time">Please type attending time:</label>
+<input [(ngModel)]="attendanceTime" type="text" placeholder="Enter time" id="time">
+<button (click)="attend()">Attend</button>
+<br>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
