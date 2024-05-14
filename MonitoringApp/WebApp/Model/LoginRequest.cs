@@ -1,6 +1,6 @@
 ﻿namespace WebApp.Model;
 
-public class LoginRequest {
-    string Username { get; set; }
-    string Password { get; set; }
+public class LoginRequest(string username, string password) {
+    public string Username { get; set; } = username;
+    public string Password { get; set; } = password;
 }

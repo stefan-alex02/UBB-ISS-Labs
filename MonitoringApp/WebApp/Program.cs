@@ -9,6 +9,7 @@ using Persistence.Repositories.TaskRepo;
 using Persistence.Repositories.UserRepo;
 using Persistence.UnitOfWork;
 using WebApp.Authentication;
+using WebApp.Notification;
 
 var builder = WebApplication.CreateBuilder(args);
 
