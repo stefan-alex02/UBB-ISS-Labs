@@ -1,38 +1,27 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Users;
 
 namespace Domain;
 
 public class Task : Entity<int> {
-    public string Description { get; set; }
+    public string Description { get; set; } = null!;
     public bool IsComplete { get; set; }
     public DateOnly AssignedDate { get; set; }
     public TimeOnly AssignedTime { get; set; }
+    public Manager CreatedBy { get; set; } = null!;
+    public Employee AssignedTo { get; set; } = null!;
 
-    [ForeignKey("CreatedBy")]
-    public int CreatedById { get; set; }
-
-    public Manager CreatedBy { get; set; }
-
-    [ForeignKey("AssignedTo")]
-    public int AssignedToId { get; set; }
-
-    public Employee AssignedTo { get; set; }
-
-    // Parameterless constructor for EF
-    public Task() : base(0) { }
+    public Task() : base(default) { }
     
     public Task(int id, string description, bool isComplete, 
         DateOnly assignedDate, TimeOnly assignedTime, 
-        int createdById, Manager createdBy, 
-        int assignedToId, Employee assignedTo) 
+        Manager createdBy, Employee assignedTo) 
         : base(id) {
         Description = description;
         IsComplete = isComplete;
         AssignedDate = assignedDate;
         AssignedTime = assignedTime;
-        CreatedById = createdById;
         CreatedBy = createdBy;
-        AssignedToId = assignedToId;
         AssignedTo = assignedTo;
     }
 }

@@ -16,9 +16,15 @@ public interface IRepository<TE, in TId> where TE : Entity<TId> {
 
     public IEnumerable<TE> GetAll();
 
-    public void Remove(TE entity);
+    public void Remove(TE entity) {
+        throw new NotImplementedException();
+    }
 
     public void RemoveRange(IEnumerable<TE> entities) {
+        throw new NotImplementedException();
+    }
+    
+    public void Update(TE entity) {
         throw new NotImplementedException();
     }
 }

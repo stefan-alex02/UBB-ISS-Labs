@@ -6,13 +6,13 @@ namespace WebApp.Controllers;
 
 public class TaskController(TaskService taskService) : Controller {
     
-    [HttpPost("api/task")]
+    [HttpPost("api/task/add")]
     public IActionResult AddTask([FromBody] TaskModel task) {
         // if (HttpContext.Request.Cookies.TryGetValue("user", out string managerIdString))
         // {
         //     if (int.TryParse(managerIdString, out int managerId))
         //     {
-                taskService.AddTask(new Task
+                taskService.AssignTask(new Task
                 {
                     Description = task.Description,
                     IsComplete = false,

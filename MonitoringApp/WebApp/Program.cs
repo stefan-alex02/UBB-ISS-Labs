@@ -45,17 +45,23 @@ TokenValidationParameters validationParameters = new TokenValidationParameters {
     ClockSkew = TimeSpan.Zero
 };
 
-builder.Services.Configure<JwtOptions>(options => {
-    options.TokenValidationParameters = validationParameters;
-});
+builder.Services
+    .Configure<JwtOptions>(options => {
+        options.TokenValidationParameters = validationParameters;
+    });
     
 builder.Services.AddSingleton<JwtService>(serviceProvider => {
     var issuer = jwtConfig["Issuer"];
     var audience = jwtConfig["Audience"];
     var key = jwtConfig["Key"];
-    var tokenLifetime = TimeSpan.Parse(jwtConfig["TokenLifetime"]);
     
-    return new JwtService(issuer, audience, key, tokenLifetime);
+    var jwtSettings = new JwtSettings {
+        ManagerTokenLifetime = TimeSpan.Parse(jwtConfig["ManagerTokenLifetime"]),
+        EmployeeTokenLifetime = TimeSpan.Parse(jwtConfig["EmployeeTokenLifetime"]),
+        EmployeeTokenEndOfDay = TimeSpan.Parse(jwtConfig["EmployeeTokenEndOfDay"]),
+    };
+    
+    return new JwtService(issuer, audience, key, jwtSettings);
 });
 
 builder.Services.AddControllers().AddJsonOptions(options => {

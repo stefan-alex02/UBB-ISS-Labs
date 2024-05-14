@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Task = Domain.Task;
 
@@ -25,19 +26,19 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbCont
             .HasValue<Manager>(UserRole.Manager)
             .HasValue<Employee>(UserRole.Employee);
 
-        modelBuilder.Entity<Attendance>()
-            .HasOne(a => a.MarkedBy)
-            .WithMany(e => e.Attendances)
-            .HasForeignKey(a => a.MarkedById);
-        
-        modelBuilder.Entity<Task>()
-            .HasOne(a => a.AssignedTo)
-            .WithMany(e => e.Tasks)
-            .HasForeignKey(a => a.AssignedToId);   
-        
-        modelBuilder.Entity<Task>()
-            .HasOne(a => a.CreatedBy)
-            .WithMany(e => e.CreatedTasks)
-            .HasForeignKey(a => a.CreatedById);  
+        // modelBuilder.Entity<Attendance>()
+        //     .HasOne(a => a.MarkedBy)
+        //     .WithMany(e => e.Attendances)
+        //     .HasForeignKey(a => a.MarkedById);
+        //
+        // modelBuilder.Entity<Task>()
+        //     .HasOne(a => a.AssignedTo)
+        //     .WithMany(e => e.Tasks)
+        //     .HasForeignKey(a => a.AssignedToId);   
+        //
+        // modelBuilder.Entity<Task>()
+        //     .HasOne(a => a.CreatedBy)
+        //     .WithMany(e => e.CreatedTasks)
+        //     .HasForeignKey(a => a.CreatedById);  
     }
 }

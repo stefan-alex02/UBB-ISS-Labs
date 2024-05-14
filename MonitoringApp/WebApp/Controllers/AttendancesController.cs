@@ -7,7 +7,6 @@ using WebApp.Notification;
 namespace WebApp.Controllers;
 
 public class AttendancesController(AttendanceService attendanceService, IHubContext<NotificationHub> hubContext, UserService userService) : Controller {
-    private readonly IHubContext<NotificationHub> _hubContext = hubContext;
     private readonly UserService _userService = userService;
 
     
@@ -26,7 +25,7 @@ public class AttendancesController(AttendanceService attendanceService, IHubCont
     }
     
     [HttpPost("api/attendance")]
-    public IActionResult MarkAddendance([FromBody] AttendanceModel attendance) {
+    public IActionResult MarkAttendance([FromBody] AttendanceModel attendance) {
         try {
             attendanceService.RecordAttendance(new Attendance {
                 Day = DateOnly.FromDateTime(DateTime.Today),
@@ -39,7 +38,7 @@ public class AttendancesController(AttendanceService attendanceService, IHubCont
             // foreach (var manager in managers) {
             //     _hubContext.Clients.User(manager.Id.ToString()).SendAsync("ReceiveNotification", "New attendance", "A new attendance has been recorded");
             // }
-            _hubContext.Clients.All.SendAsync("ReceiveNotification",
+            hubContext.Clients.All.SendAsync("ReceiveNotification",
                 "New attendance",
                 "A new attendance has been recorded");
 

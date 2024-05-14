@@ -1,5 +1,7 @@
 ﻿using Business.Exceptions;
+using Business.Utils;
 using Domain;
+using Domain.Users;
 using Persistence.Repositories.UserRepo;
 using Persistence.UnitOfWork;
 
@@ -14,23 +16,28 @@ public class UserService(IUnitOfWork unitOfWork) {
         if (user is null) {
             throw new AuthenticationException("User not found");
         }
-        
-        if (user.Password != password) {
+        if (!PasswordService.VerifyPasswordHash(password, user.Password)) {
             throw new AuthenticationException("Invalid password");
         }
-        
-        // if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt)) {
-        //     throw new Exception("Invalid password");
-        // }
         
         return user;
     }
     
-    public User GetById(int id) =>
-        _unitOfWork.UserRepository.Get(id) ?? 
-        throw new NotFoundException("User not found");
+    public void RegisterEmployee(string username, string password, string name) {
+        if (_unitOfWork.UserRepository.GetByUsername(username) is null) {
+            throw new RegisterException("Username is already taken");
+        }
 
-    public IEnumerable<Manager> GetAllManagers() =>
-        _unitOfWork.UserRepository
-            .Find(u => u.UserRole == UserRole.Manager).Select(u => (Manager)u);
+        User user = new Employee(username, password, name);
+        
+        _unitOfWork.UserRepository.Add(user);
+        _unitOfWork.SaveChanges();
+    }
+    
+    public User GetById(int id) =>
+        _unitOfWork.UserRepository.Get(id) ?? throw new NotFoundException("User not found");
+    
+    // public IEnumerable<Manager> GetAllManagers() =>
+    //     _unitOfWork.UserRepository
+    //         .Find(u => u.UserRole == UserRole.Manager).Select(u => (Manager)u);
 }

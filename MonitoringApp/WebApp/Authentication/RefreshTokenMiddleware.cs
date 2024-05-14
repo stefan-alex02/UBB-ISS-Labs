@@ -1,4 +1,5 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using Domain.Users;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -38,7 +39,12 @@ public class RefreshTokenMiddleware : IMiddleware {
                     // If the token is close to expiration (within 5 minutes), refresh it
                     if (remainingLifetime < TimeSpan.FromMinutes(5)) {
                         // Generate a new token using the existing claims
-                        var newToken = _jwtService.GenerateToken(principal.Claims.ToArray());
+                        int userId = int.Parse(principal.FindFirst("user_id").Value);
+                        string username = principal.FindFirst("username").Value;
+                        string name = principal.FindFirst("name").Value;
+                        UserRole userRole = (UserRole)int.Parse(principal.FindFirst("user_role").Value);
+                        
+                        var newToken = _jwtService.GenerateToken(userId, username, name, userRole);
 
                         // Set the new token in the response header
                         context.Response.Headers["Authorization"] = "Bearer " + newToken;

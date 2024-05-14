@@ -4,40 +4,42 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Domain;
+using Domain.Users;
 
 namespace WebApp.Authentication;
 
-public class JwtService {
-    private readonly string _issuer;
-    private readonly string _audience;
-    private readonly SymmetricSecurityKey _signingKey;
-    private readonly TimeSpan _tokenLifetime;
+public class JwtService(string issuer, string audience, string key, JwtSettings jwtSettings) {
+    private readonly SymmetricSecurityKey _signingKey = new(Encoding.UTF8.GetBytes(key));
 
-    public JwtService(string issuer, string audience, string key, TimeSpan tokenLifetime) {
-        _issuer = issuer;
-        _audience = audience;
-        _signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
-        _tokenLifetime = tokenLifetime;
-    }
-
-    public string GenerateToken(User user) {
+    public string GenerateToken(int userId, string username, string name, UserRole userRole) {
         var claims = new[] {
-            new Claim("user_id", user.Id.ToString()),
-            new Claim("username", user.Username!),
-            new Claim("user_role", ((int)user.UserRole).ToString())
+            new Claim("user_id", userId.ToString()),
+            new Claim("username", username),
+            new Claim("name", name),
+            new Claim("user_role", ((int)userRole).ToString())
         };
+        
+        DateTime expireAt;
+        if (userRole == UserRole.Manager) {
+            expireAt = DateTime.UtcNow.Add(jwtSettings.ManagerTokenLifetime);
+        } else {
+            var now = DateTime.UtcNow;
+            expireAt = now.Date.AddHours(jwtSettings.EmployeeTokenEndOfDay.TotalHours);
+            if (now > expireAt) {
+                expireAt = expireAt.AddDays(1); // 6:00 PM of the next day
+            }
+            else if (expireAt - now < jwtSettings.EmployeeTokenLifetime) {
+                expireAt = now.Add(jwtSettings.EmployeeTokenLifetime);
+            }
+        }
 
-        return GenerateToken(claims);
-    }
-    
-    public string GenerateToken(Claim[] claims) {
         var signingCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);
         var jwtToken = new JwtSecurityToken(
-            issuer: _issuer,
-            audience: _audience,
+            issuer: issuer,
+            audience: audience,
             claims: claims,
             notBefore: DateTime.UtcNow,
-            expires: DateTime.UtcNow.Add(_tokenLifetime),
+            expires: expireAt,
             signingCredentials: signingCredentials
         );
 

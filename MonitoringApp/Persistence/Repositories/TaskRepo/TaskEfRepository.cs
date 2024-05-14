@@ -12,18 +12,18 @@ public class TaskEfRepository(IDatabaseContext context) : ITaskRepository {
     }
 
     public IEnumerable<Task> Find(Expression<Func<Task, bool>> predicate) {
-        throw new NotImplementedException();
+        return _context.Tasks.Where(predicate);
     }
 
     public Task? Get(int id) {
-        throw new NotImplementedException();
+        return _context.Tasks.Find(id);
     }
 
     public IEnumerable<Task> GetAll() {
         return _context.Tasks.ToList();
     }
-
-    public void Remove(Task entity) {
-        throw new NotImplementedException();
+    
+    public void Update(Task entity) {
+        _context.Tasks.Update(entity);
     }
 }

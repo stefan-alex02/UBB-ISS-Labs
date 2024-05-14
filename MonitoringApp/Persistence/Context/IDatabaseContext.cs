@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Context;
