@@ -1,4 +1,4 @@
-﻿namespace WebApp.Model;
+﻿namespace WebApp.Model.User;
 
 public class RegisterRequest(string username, string name, string password) {
     public string Username { get; set; } = username;
