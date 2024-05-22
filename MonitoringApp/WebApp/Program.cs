@@ -17,6 +17,7 @@ IConfigurationRoot configuration = new ConfigurationBuilder()
     .SetBasePath(builder.Environment.ContentRootPath)
     .AddJsonFile("appsettings.json")
     .Build();
+
 string connectionString = configuration.GetConnectionString("DefaultConnection")!
     .Replace("{Dir}", Directory.GetParent(Environment.CurrentDirectory)!.FullName);
 

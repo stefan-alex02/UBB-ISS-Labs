@@ -25,6 +25,10 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbCont
             .HasValue<User>(UserRole.StaffMember)
             .HasValue<Manager>(UserRole.Manager)
             .HasValue<Employee>(UserRole.Employee);
+        
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.Username)
+            .IsUnique();
 
         // modelBuilder.Entity<Attendance>()
         //     .HasOne(a => a.MarkedBy)

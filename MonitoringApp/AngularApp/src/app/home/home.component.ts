@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 import { UserRoles } from '../data/user-roles';
-import {NotificationService} from "../services/notification.service";
+import {NotificationService} from "../../services/notification.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -11,25 +11,23 @@ import {NotificationService} from "../services/notification.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private cookieService: CookieService, private router: Router,
+  constructor(private authService: AuthService, private router: Router,
               public notificationService: NotificationService) { }
 
-
-
   ngOnInit(): void {
-    const user = this.cookieService.get('user');
-    if (user) {
-      const userRole = JSON.parse(user).userRole;
-      if (userRole === UserRoles.Manager) {
+    if (this.authService.isLoggedIn()) {
+      console.log('User is logged in, user role:', this.authService.getUserRole());
+      if (this.authService.getUserRole() === UserRoles.Manager) {
         this.router.navigate(['/manager-dashboard'])
-          .then(r => console.log(r));
-      } else if (userRole === UserRoles.Employee) {
+          .then(r => console.log('Redirected to manager dashboard page:', r));
+      } else if (this.authService.getUserRole() === UserRoles.Employee) {
         this.router.navigate(['/attend-page'])
-          .then(r => console.log(r));
+          .then(r => console.log('Redirected to attend page:', r));
       }
     } else {
+      console.log('User is not logged in');
       this.router.navigate(['/login'])
-        .then(r => console.log(r));
+        .then(r => console.log('Redirected to login page:', r));
     }
   }
 

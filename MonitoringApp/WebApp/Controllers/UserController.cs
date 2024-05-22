@@ -1,5 +1,4 @@
-﻿using System.Security.Claims;
-using Business.Exceptions;
+﻿using Business.Exceptions;
 using Business.Services;
 using Domain;
 using Domain.Users;
@@ -7,18 +6,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using WebApp.Authentication;
-using WebApp.Model;
 using WebApp.Model.DTO;
 using WebApp.Model.User;
 using WebApp.Notification;
 
 namespace WebApp.Controllers;
 
-public class UserController(UserService userService, 
-    AttendanceService attendanceService,
-    JwtService jwtService, 
+public class UserController(UserService userService, AttendanceService attendanceService, JwtService jwtService, 
     IHubContext<NotificationHub, INotificationHub> hubContext) : Controller {
-    [HttpPost("api/user/login")]
+    [HttpPost("api/users/login")]
     public async Task<ActionResult<LoginResponse>> Login([FromBody] LoginRequest loginRequest) {
         try {
             User user = userService.Authenticate(loginRequest.Username, loginRequest.Password);
@@ -39,7 +35,7 @@ public class UserController(UserService userService,
         }
     }
     
-    [HttpPost("api/user/logout")]
+    [HttpPost("api/users/logout")]
     [Authorize]
     public async Task<ActionResult<HttpResponse>> Logout() {
         if (HttpContext.User.Identity is not { IsAuthenticated: true }) {
@@ -50,7 +46,7 @@ public class UserController(UserService userService,
         int userId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == "user_id").Value);
         
         // Mark the attendance as finished
-        Attendance attendance = attendanceService.EndTodayAttendanceOf(userId, DateTime.Now);
+        Attendance attendance = attendanceService.EndAttendanceOf(userId, DateTime.Now);
         
         // Notify all clients
         Console.WriteLine("User logging out, sending notification...");
@@ -59,7 +55,7 @@ public class UserController(UserService userService,
         return Ok();
     }
     
-    [HttpPost("api/user/register")]
+    [HttpPost("api/users/register")]
     public async Task<ActionResult<HttpResponse>> Register([FromBody] RegisterRequest registerRequest) {
         try {
             userService.RegisterEmployee(registerRequest.Username, registerRequest.Password, registerRequest.Name);

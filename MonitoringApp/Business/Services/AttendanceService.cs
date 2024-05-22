@@ -6,9 +6,9 @@ using Persistence.UnitOfWork;
 namespace Business.Services;
 
 public class AttendanceService(IUnitOfWork unitOfWork) {
-    public IEnumerable<Attendance> GetAttendancesOfToday() {
+    public IEnumerable<Attendance> GetUnfinishedAttendances() {
         return unitOfWork.AttendanceRepository
-            .Find(a => a.Day == DateOnly.FromDateTime(DateTime.Today));
+            .Find(a => a.End == null);
     }
     
     public Attendance RecordAttendance(int userId, TimeOnly startTime) {
@@ -34,7 +34,7 @@ public class AttendanceService(IUnitOfWork unitOfWork) {
         return attendance;
     }
 
-    public Attendance EndTodayAttendanceOf(int userId, DateTime endTime) {
+    public Attendance EndAttendanceOf(int userId, DateTime endTime) {
         Attendance? foundAttendance = unitOfWork.AttendanceRepository
             .Find(a => a.MarkedBy.Id == userId).FirstOrDefault();
 

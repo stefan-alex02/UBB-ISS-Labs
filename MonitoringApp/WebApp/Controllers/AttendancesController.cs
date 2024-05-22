@@ -12,25 +12,21 @@ namespace WebApp.Controllers;
 
 public class AttendancesController(AttendanceService attendanceService, 
     IHubContext<NotificationHub, INotificationHub> hubContext, UserService userService) : Controller {
-    private readonly UserService _userService = userService;
-
-    
-    [HttpGet("api/attendance/today")]
+    [HttpGet("api/attendances")]
     [Authorize]
-    public IActionResult GetAttendancesOfToday() {
+    public IActionResult GetUnfinishedAttendances() {
         if (HttpContext.User.Identity is not { IsAuthenticated: true }) {
             return Unauthorized();
         }
         
-        AttendanceDto[] attendances = attendanceService
-          .GetAttendancesOfToday()
-          .Select(AttendanceDto.FromAttendance)
-          .ToArray(); 
+        IEnumerable<AttendanceDto> attendances = attendanceService
+          .GetUnfinishedAttendances()
+          .Select(AttendanceDto.FromAttendance); 
         
-        return Ok(new TodayAttendancesResponse(attendances));
+        return Ok(attendances);
     }
     
-    [HttpPost("api/attendance/mark")]
+    [HttpPost("api/attendances")]
     [Authorize]
     public async Task<IActionResult> MarkAttendance([FromBody] MarkAttendanceRequest request) {
         if (HttpContext.User.Identity is not { IsAuthenticated: true }) {
@@ -43,7 +39,7 @@ public class AttendancesController(AttendanceService attendanceService,
             
             // Mark the attendance
             Attendance attendance = attendanceService
-                .RecordAttendance(userId, TimeOnly.Parse(request.StartTime));
+                .RecordAttendance(userId, request.StartTime);
 
             // Notify all clients
             await hubContext.Clients.All.NotifyAttendance(AttendanceDto.FromAttendance(attendance));

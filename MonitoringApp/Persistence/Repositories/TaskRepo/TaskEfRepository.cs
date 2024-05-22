@@ -26,4 +26,8 @@ public class TaskEfRepository(IDatabaseContext context) : ITaskRepository {
     public void Update(Task entity) {
         _context.Tasks.Update(entity);
     }
+    
+    public void Remove(Task entity) {
+        _context.Tasks.Remove(entity);
+    }
 }

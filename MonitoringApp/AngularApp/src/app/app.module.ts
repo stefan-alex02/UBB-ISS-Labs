@@ -6,11 +6,12 @@ import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './user-management/login/login.component';
 import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
 import { AttendPageComponent } from './attend-page/attend-page.component';
 import { HomeComponent } from './home/home.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import { RegisterUserComponent } from './user-management/register-user/register-user.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
     ManagerDashboardComponent,
     AttendPageComponent,
     HomeComponent,
-    EmployeeDashboardComponent
+    EmployeeDashboardComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,

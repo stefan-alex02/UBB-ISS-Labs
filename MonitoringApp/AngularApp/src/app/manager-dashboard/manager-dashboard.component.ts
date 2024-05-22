@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AttendanceService } from '../services/attendance.service';
-import { TasksService } from '../services/task.service';
+import { AttendanceService } from '../../services/attendance.service';
+import { TasksService } from '../../services/task.service';
 import {CookieService} from "ngx-cookie-service";
 import {Router} from "@angular/router";
-import {NotificationService} from "../services/notification.service";
+import {NotificationService} from "../../services/notification.service";
 
 @Component({
   selector: 'app-manager-dashboard',
@@ -24,7 +24,7 @@ export class ManagerDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateAttendances();
-    this.notificationService.addReceiveNotificationListener(() => this.updateAttendances());
+    this.notificationService.startConnection();
   }
 
   updateAttendances(): void {

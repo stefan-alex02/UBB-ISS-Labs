@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AttendanceService } from '../services/attendance.service';
+import { AttendanceService } from '../../services/attendance.service';
 import { CookieService } from 'ngx-cookie-service';
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-attend-page',
@@ -12,7 +13,8 @@ export class AttendPageComponent implements OnInit {
   attendanceTime: string = '';
   errorMessage: string | undefined = undefined;
 
-  constructor(private attendanceService: AttendanceService,
+  constructor(private authService: AuthService,
+              private attendanceService: AttendanceService,
               private cookieService: CookieService,
               private router: Router) { }
 
@@ -35,5 +37,17 @@ export class AttendPageComponent implements OnInit {
         }
       }
     );
+  }
+
+  logout() {
+    this.authService.clearJwtToken();
+    this.authService.logout().subscribe(
+      response => {
+        this.router.navigate(['/login']);
+      },
+      error => {
+        console.error('Error:', error);
+      }
+    )
   }
 }
