@@ -1,3 +1,4 @@
 {
-  "baseUrl": "https://localhost:7082"
+  "baseUrl": "https://localhost:7082",
+  "notificationHubUrl": "https://localhost:7082/notificationHub"
 }

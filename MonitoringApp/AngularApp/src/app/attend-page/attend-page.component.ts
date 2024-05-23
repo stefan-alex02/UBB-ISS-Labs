@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AttendanceService } from '../../services/attendance.service';
-import { CookieService } from 'ngx-cookie-service';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 
@@ -15,28 +14,26 @@ export class AttendPageComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private attendanceService: AttendanceService,
-              private cookieService: CookieService,
               private router: Router) { }
 
   ngOnInit(): void {
   }
 
   attend(): void {
-    const userId = JSON.parse(this.cookieService.get('user')).id;
-    this.attendanceService.postAttendance(userId, this.attendanceTime).subscribe(
-      response => {
+    this.attendanceService.postAttendance(this.authService.getUsername(), this.attendanceTime).subscribe({
+      next: (response) => {
         console.log('Attendance added with success');
         this.attendanceTime = '';
-        this.router.navigate(['/employee-dashboard']); // Navigate to employee-dashboard page
+        this.router.navigate(['/employee-dashboard']);
       },
-      error => {
+      error: (error) => {
         if (error.status === 450) {
           this.errorMessage = error.error;
         } else if (error.status === 400) {
           this.errorMessage = 'Unknown error';
         }
       }
-    );
+    });
   }
 
   logout() {

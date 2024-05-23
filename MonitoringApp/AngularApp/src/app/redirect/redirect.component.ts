@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserRoles } from '../data/user-roles';
+import { UserRoles } from '../../model/data/user-roles';
 import {NotificationService} from "../../services/notification.service";
 import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './redirect.component.html',
+  styleUrls: ['./redirect.component.css']
 })
-export class HomeComponent implements OnInit {
+export class RedirectComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router,
               public notificationService: NotificationService) { }

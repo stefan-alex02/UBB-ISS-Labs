@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, tap} from 'rxjs';
+import config from '../config.json';
+import {AttendanceDto} from "../model/attendance-dto";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AttendanceService {
-  private apiUrl = 'https:/localhost:7082/api/attendance';
+  private getUnfinishedAttendancesUrl = config.baseUrl + '/api/attendances';
+  private postAttendanceUrl = config.baseUrl + '/api/attendances';
 
   constructor(private http: HttpClient) { }
 
-  getAttendances(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getUnfinishedAttendances(): Observable<AttendanceDto[]> {
+    return this.http.get<AttendanceDto[]>(this.getUnfinishedAttendancesUrl);
   }
 
-  postAttendance(userId: number, time: string): Observable<any> {
-    const url = `${this.apiUrl}`;
+  postAttendance(employeeUsername: string, time: string): Observable<any> {
+    const url = `${this.postAttendanceUrl}`;
 
     return this.http.post(url, {
-      MarkedById: userId,
-      Time: time
+      Username: employeeUsername,
+      StartTime: time
     });
   }
 }

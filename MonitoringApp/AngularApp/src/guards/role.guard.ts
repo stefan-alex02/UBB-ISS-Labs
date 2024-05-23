@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserRoles } from '../app/data/user-roles';
+import { UserRoles } from '../model/data/user-roles';
 import { Location } from '@angular/common';
 import {AuthService} from "../services/auth.service";
 
@@ -9,7 +9,6 @@ import {AuthService} from "../services/auth.service";
   providedIn: 'root'
 })
 export class RoleGuard implements CanActivate {
-
   constructor(private authService: AuthService,
               private router: Router,
               private location: Location) { }
@@ -17,6 +16,13 @@ export class RoleGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (!this.authService.isLoggedIn()) {
+      console.log('Role guard: User is not logged in');
+      this.router.navigate(['/login'])
+        .then(r => console.log('Redirected to login page:', r));
+      return false;
+    }
+
     const requiredRole = route.data['role'] as UserRoles;
     if (this.authService.getUserRole() === requiredRole) {
       console.log('Role guard: User has required role: ', requiredRole);

@@ -9,9 +9,8 @@
   <tr *ngFor="let employee of attendances; let i = index"
       [class.selected]="selectedRow === i"
       (click)="selectedRow = selectedRow === i ? null : i">
-    <td>{{ employee.markedBy }}</td>
-    <td>{{ employee.start }}</td>
-    <!-- Add more cells as needed -->
+    <td>{{ employee.name }}</td>
+    <td>{{ employee.startTime }}</td>
   </tr>
   </tbody>
 </table>

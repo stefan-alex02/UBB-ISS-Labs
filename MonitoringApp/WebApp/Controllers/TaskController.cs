@@ -15,7 +15,7 @@ public class TaskController(TaskService taskService,
     
     [HttpPost("api/tasks")]
     [Authorize]
-    public async Task<IActionResult> AddTask([FromBody] AddTaskRequest request) {
+    public async Task<IActionResult> AssignTask([FromBody] AddTaskRequest request) {
         if (HttpContext.User.Identity is not { IsAuthenticated: true }) {
             return Unauthorized();
         }
@@ -29,7 +29,9 @@ public class TaskController(TaskService taskService,
             }
 
             Domain.Task createdTask = taskService.AssignTask(request.CreatedByUsername, request.AssignedToUsername,
-                request.Description, request.AssignedDate, request.AssignedTime);
+                request.Description, 
+                DateOnly.Parse(request.AssignedDate), 
+                TimeOnly.Parse(request.AssignedTime));
 
             await hubContext.Clients.All.NotifyTask(TaskDto.FromTask(createdTask));
 
@@ -48,7 +50,7 @@ public class TaskController(TaskService taskService,
     
     [HttpGet("api/tasks/{employeeId}")]
     [Authorize]
-    public IActionResult GetTasksForEmployee(int employeeId) {
+    public ActionResult<TaskDto[]> GetTasksForEmployee(int employeeId) {
         if (HttpContext.User.Identity is not { IsAuthenticated: true }) {
             return Unauthorized();
         }
@@ -61,9 +63,10 @@ public class TaskController(TaskService taskService,
                 return StatusCode(403, "Only managers and employees can view tasks");
             }
 
-            IEnumerable<Domain.Task> tasks = taskService.GetOngoingTasksFor(employeeId);
+            IEnumerable<TaskDto> tasks = taskService.GetOngoingTasksFor(employeeId)
+                .Select(TaskDto.FromTask);
 
-            return Ok(tasks.Select(TaskDto.FromTask));
+            return Ok(tasks.ToArray());
         }
         catch (NotFoundException e) {
             return NotFound(e.Message);

@@ -11,8 +11,8 @@ public class AttendanceService(IUnitOfWork unitOfWork) {
             .Find(a => a.End == null);
     }
     
-    public Attendance RecordAttendance(int userId, TimeOnly startTime) {
-        User? user = unitOfWork.UserRepository.Get(userId);
+    public Attendance RecordAttendance(string employeeUsername, TimeOnly startTime) {
+        User? user = unitOfWork.UserRepository.GetByUsername(employeeUsername);
         
         if (user is null) {
             throw new NotFoundException("User could not be found!");
@@ -34,15 +34,15 @@ public class AttendanceService(IUnitOfWork unitOfWork) {
         return attendance;
     }
 
-    public Attendance EndAttendanceOf(int userId, DateTime endTime) {
+    public Attendance EndAttendanceOf(int userId, TimeOnly endTime) {
         Attendance? foundAttendance = unitOfWork.AttendanceRepository
-            .Find(a => a.MarkedBy.Id == userId).FirstOrDefault();
+            .Find(a => a.MarkedBy.Id == userId && a.End == null).FirstOrDefault();
 
         if (foundAttendance is null) {
             throw new NotFoundException("User could not be found!");
         }
         
-        foundAttendance.End = TimeOnly.FromDateTime(endTime);
+        foundAttendance.End = endTime;
         unitOfWork.SaveChanges();
         
         return foundAttendance;

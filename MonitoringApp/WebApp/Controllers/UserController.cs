@@ -41,17 +41,23 @@ public class UserController(UserService userService, AttendanceService attendanc
         if (HttpContext.User.Identity is not { IsAuthenticated: true }) {
             return Unauthorized();
         }
+        // Check if the user is an employee
+        UserRole userRole = (UserRole) Enum.Parse(typeof(UserRole), HttpContext.User.Claims
+            .First(c => c.Type == "user_role").Value);
         
-        // Get the user ID from the JWT token
-        int userId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == "user_id").Value);
-        
-        // Mark the attendance as finished
-        Attendance attendance = attendanceService.EndAttendanceOf(userId, DateTime.Now);
-        
-        // Notify all clients
-        Console.WriteLine("User logging out, sending notification...");
-        await hubContext.Clients.All.NotifyLogout(AttendanceDto.FromAttendance(attendance));
+        if (userRole == UserRole.Employee) {
+            // Get the user ID from the JWT token
+            int userId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == "user_id").Value);
 
+            // Mark the attendance as finished
+            Attendance attendance = attendanceService
+                .EndAttendanceOf(userId, TimeOnly.FromDateTime(DateTime.Now));
+        
+            // Notify all clients
+            Console.WriteLine("User logging out, sending notification...");
+            await hubContext.Clients.All.NotifyLogout(AttendanceDto.FromAttendance(attendance));
+        }
+        
         return Ok();
     }
     

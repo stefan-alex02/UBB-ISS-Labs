@@ -1,1 +1,12 @@
+<ul *ngFor="let task of tasks; let i = index"
+    [class.selected]="selectedRow === i"
+    (click)="selectedRow = selectedRow === i ? null : i">
+  <li>
+    <span>
+      {{ tasks[i].description }}
+    </span>
+    <button (click)="completeTask(task)">Complete</button>
+  </li>
+</ul>
+
 <button (click)="logout()">Logout</button>

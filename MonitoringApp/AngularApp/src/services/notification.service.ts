@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
-import {AttendanceService} from "./attendance.service";
-import {UserRoles} from "../app/data/user-roles";
+import config from '../config.json';
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -9,24 +9,40 @@ import {UserRoles} from "../app/data/user-roles";
 export class NotificationService {
   private hubConnection!: signalR.HubConnection
 
+  private newAttendanceNotificationSubject = new Subject<any>();
+  public newAttendanceNotification$ = this.newAttendanceNotificationSubject.asObservable();
+
+  private newTaskNotificationSubject = new Subject<any>();
+  public newTaskNotification$ = this.newTaskNotificationSubject.asObservable();
+
+
   public startConnection = () => {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://localhost:7082/notificationHub',
-        { skipNegotiation: true,
+      .withUrl(config.notificationHubUrl, { skipNegotiation: true,
           transport: signalR.HttpTransportType.WebSockets})
       .build();
-    this.hubConnection
-      .start()
-      .then(() => console.log('Connection started'))
-      .catch(err => console.log('Error while starting connection: ' + err))
+    this.hubConnection.start()
+      .then(
+        () => console.log('Connection started'),
+        (error) => console.error('Error while starting connection:', error)
+      );
 
     this.addReceiveNotificationListeners();
+  }
+
+  public stopConnection = () => {
+    this.removeReceiveNotificationListeners();
+    this.hubConnection.stop()
+      .then(
+        () => console.log('Connection stopped'),
+        (error) => console.error('Error while stopping connection:', error)
+      );
   }
 
   private addReceiveNotificationListeners = () => {
     this.hubConnection.on('NotifyAttendance', (attendance) => {
       console.log('Attendance notification received:', attendance);
-      // Handle the attendance notification here
+      this.newAttendanceNotificationSubject.next(attendance);
     });
 
     this.hubConnection.on('NotifyLogout', (attendance) => {
@@ -36,7 +52,7 @@ export class NotificationService {
 
     this.hubConnection.on('NotifyTask', (task) => {
       console.log('Task notification received:', task);
-      // Handle the task notification here
+      this.newTaskNotificationSubject.next(task);
     });
 
     this.hubConnection.on('NotifyTaskUpdate', (task) => {
@@ -48,5 +64,13 @@ export class NotificationService {
       console.log('Task deletion notification received:', taskId);
       // Handle the task deletion notification here
     });
+  }
+
+  private removeReceiveNotificationListeners = () => {
+    this.hubConnection.off('NotifyAttendance');
+    this.hubConnection.off('NotifyLogout');
+    this.hubConnection.off('NotifyTask');
+    this.hubConnection.off('NotifyTaskUpdate');
+    this.hubConnection.off('NotifyTaskDeletion');
   }
 }

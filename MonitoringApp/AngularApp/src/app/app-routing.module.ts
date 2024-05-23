@@ -3,24 +3,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './user-management/login/login.component';
 import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
 import { AttendPageComponent } from './attend-page/attend-page.component';
-import { HomeComponent } from './home/home.component';
-import { AuthGuard } from '../guards/auth.guard';
+import { RedirectComponent } from './redirect/redirect.component';
 import { RoleGuard } from '../guards/role.guard';
-import { UserRoles } from './data/user-roles';
+import { UserRoles } from '../model/data/user-roles';
 import {EmployeeDashboardComponent} from "./employee-dashboard/employee-dashboard.component";
 import {RegisterUserComponent} from "./user-management/register-user/register-user.component";
+import {AppComponent} from "./app.component";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent,
+  { path: '', component: AppComponent,
     children: [
+      { path: '', component: RedirectComponent},
       { path: 'manager-dashboard', component: ManagerDashboardComponent,
-        canActivate: [AuthGuard, RoleGuard],
+        canActivate: [RoleGuard],
         data: { role: UserRoles.Manager } },
       { path: 'attend-page', component: AttendPageComponent,
-        canActivate: [AuthGuard, RoleGuard],
+        canActivate: [RoleGuard],
         data: { role: UserRoles.Employee } },
       { path: 'employee-dashboard', component: EmployeeDashboardComponent,
-        canActivate: [AuthGuard, RoleGuard],
+        canActivate: [RoleGuard],
         data: { role: UserRoles.Employee }
       }
     ]

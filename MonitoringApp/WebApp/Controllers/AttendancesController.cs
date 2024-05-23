@@ -14,7 +14,7 @@ public class AttendancesController(AttendanceService attendanceService,
     IHubContext<NotificationHub, INotificationHub> hubContext, UserService userService) : Controller {
     [HttpGet("api/attendances")]
     [Authorize]
-    public IActionResult GetUnfinishedAttendances() {
+    public ActionResult<AttendanceDto[]> GetUnfinishedAttendances() {
         if (HttpContext.User.Identity is not { IsAuthenticated: true }) {
             return Unauthorized();
         }
@@ -23,7 +23,7 @@ public class AttendancesController(AttendanceService attendanceService,
           .GetUnfinishedAttendances()
           .Select(AttendanceDto.FromAttendance); 
         
-        return Ok(attendances);
+        return Ok(attendances.ToArray());
     }
     
     [HttpPost("api/attendances")]
@@ -34,12 +34,9 @@ public class AttendancesController(AttendanceService attendanceService,
         }
         
         try {
-            // Get the user ID from the JWT token
-            int userId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == "user_id").Value);
-            
             // Mark the attendance
             Attendance attendance = attendanceService
-                .RecordAttendance(userId, request.StartTime);
+                .RecordAttendance(request.Username, TimeOnly.Parse(request.StartTime));
 
             // Notify all clients
             await hubContext.Clients.All.NotifyAttendance(AttendanceDto.FromAttendance(attendance));

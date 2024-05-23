@@ -4,6 +4,7 @@ import {Observable, tap} from "rxjs";
 import config from '../config.json';
 import {jwtDecode} from "jwt-decode";
 import moment from 'moment';
+import {NotificationService} from "./notification.service";
 
 @Injectable({
   providedIn: 'root'
@@ -13,21 +14,26 @@ export class AuthService {
   private logoutUrl = config.baseUrl + '/api/users/logout';
   private registerUrl = config.baseUrl + '/api/users/register';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private notificationService: NotificationService) { }
 
   public login(username: string, password: string): Observable<any> {
     return this.http.post(this.loginUrl,
       { Username: username, Password: password},
       { withCredentials: true }).pipe(tap(
         (res: any) => {
+          console.log('Received response: ', res);
           this.saveJwtToken(res.token);
     }));
   }
 
   public logout(): Observable<any> {
+    console.log('Logging out');
     return this.http.post(this.logoutUrl, {}, { withCredentials: true }).pipe(
-      tap(() => {
+      tap((res: any) => {
+        console.log('Received response: ', res);
         this.clearJwtToken();
+        this.notificationService.stopConnection();
       })
     );
   }
@@ -68,7 +74,7 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  public isLoggedIn() {
+  public isLoggedIn(): boolean {
     if (this.getToken() === null) {
       return false;
     }
@@ -79,19 +85,19 @@ export class AuthService {
     return true;
   }
 
-  isTokenExpired() {
+  isTokenExpired(): boolean {
     const expiration = localStorage.getItem("expires_at");
     const expiresAt = JSON.parse(expiration!);
     console.log('Expires at: ', moment.unix(expiresAt).format('YYYY-MM-DD HH:mm:ss'));
     return moment().isAfter(moment.unix(expiresAt));
   }
 
-  public getUsername() {
-    return localStorage.getItem('username');
+  public getUsername(): string {
+    return localStorage.getItem('username') ?? '';
   }
 
-  public getUserId() {
-    return localStorage.getItem('id');
+  public getUserId(): number {
+    return Number(localStorage.getItem('id') ?? -1);
   }
 
   public getUserRole(): number {

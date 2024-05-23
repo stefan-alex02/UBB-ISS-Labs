@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AttendanceService } from '../../services/attendance.service';
 import { TasksService } from '../../services/task.service';
-import {CookieService} from "ngx-cookie-service";
 import {Router} from "@angular/router";
 import {NotificationService} from "../../services/notification.service";
+import {AuthService} from "../../services/auth.service";
+import {tap} from "rxjs";
+import {AttendanceDto} from "../../model/attendance-dto";
 
 @Component({
   selector: 'app-manager-dashboard',
@@ -11,53 +13,63 @@ import {NotificationService} from "../../services/notification.service";
   styleUrls: ['./manager-dashboard.component.css']
 })
 export class ManagerDashboardComponent implements OnInit {
-  attendances: any[] = [];
+  attendances: AttendanceDto[] = [];
   selectedRow: number | null = null;
   successMessage: string | null = null;
   taskDescription: string = '';
 
-  constructor(private attendanceService: AttendanceService,
+  constructor(private authService: AuthService,
+              private attendanceService: AttendanceService,
               private tasksService: TasksService,
-              private cookieService: CookieService,
               private router: Router,
               private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.updateAttendances();
+    this.displayAttendances();
     this.notificationService.startConnection();
+    this.notificationService.newAttendanceNotification$.subscribe({
+      next: (attendance) => {
+        console.log('Attendance notification received:', attendance);
+        this.displayAttendances();
+      }
+    });
   }
 
-  updateAttendances(): void {
-    this.attendanceService.getAttendances().subscribe(
-      data => {
-        console.log('Attendances:', data)
+  displayAttendances(): void {
+    this.attendanceService.getUnfinishedAttendances().subscribe({
+      next: (data) => {
+        console.log('Received unfinished attendances:', data);
         this.attendances = data;
       },
-      error => {
+      error: (error) => {
         console.error('Error:', error);
       }
-    );
+    });
   }
 
   assignTask(): void {
     if (this.selectedRow !== undefined && this.selectedRow !== null) {
-      const employeeId = this.attendances[this.selectedRow].markedById;
-      this.tasksService.assignTask(employeeId, this.taskDescription).subscribe(
-        response => {
+      const managerUsername = this.authService.getUsername();
+      const employeeUsername = this.attendances[this.selectedRow].username;
+
+      this.tasksService.assignTask(managerUsername, employeeUsername, this.taskDescription).subscribe({
+        next: (data) => {
           this.successMessage = 'Task added with success';
           setTimeout(() => this.successMessage = null, 5000);
           this.taskDescription = '';
           this.selectedRow = null;
         },
-        error => {
+        error: (error) => {
           console.error('Error:', error);
         }
-      );
+      });
     }
   }
 
   logout(): void {
-    this.cookieService.delete('user');
-    this.router.navigate(['/login']);
+    this.authService.logout().subscribe(() => {
+      console.log('Logged out');
+      this.router.navigate(['/login']);
+    });
   }
 }

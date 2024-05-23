@@ -1,28 +1,51 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {CookieService} from "ngx-cookie-service";
+import config from "../config.json";
+import {TaskDto} from "../model/task-dto";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TasksService {
-  private apiUrl = 'https://localhost:7082/api/task'; // Replace with your API URL
+  private assignTaskUrl = config.baseUrl + '/api/tasks';
 
-  constructor(private cookieService: CookieService, private http: HttpClient) { }
+  private dateOptions: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  };
 
-  assignTask(employeeId: number, taskDescription: string): Observable<any> {
-    const url = `${this.apiUrl}`;
+  private timeOptions: Intl.DateTimeFormatOptions = {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  };
 
-    console.log({
+  constructor(private http: HttpClient) { }
+
+  assignTask(managerUsername: string, employeeUsername: string, taskDescription: string): Observable<any> {
+    const now = new Date();
+
+    let currentDate = now.toLocaleDateString('en-CA', this.dateOptions);
+    currentDate = currentDate.replace(/\//g, ':');
+
+    let currentTime = now.toLocaleTimeString('en-GB', this.timeOptions);
+
+    console.log('Assigning task to', employeeUsername, 'with description:', taskDescription);
+    console.log('Current date:', currentDate, 'Current time:', currentTime);
+
+    return this.http.post(this.assignTaskUrl, {
+      CreatedByUsername: managerUsername,
+      AssignedToUsername: employeeUsername,
       Description: taskDescription,
-      AssignedToId: employeeId,
-      CreatedById: JSON.parse(this.cookieService.get('user')).id,
+      AssignedDate: currentDate,
+      AssignedTime: currentTime
     });
-    return this.http.post(url, {
-      Description: taskDescription,
-      AssignedToId: employeeId,
-      CreatedById: JSON.parse(this.cookieService.get('user')).id,
-    });
+  }
+
+  public getTasksForEmployee(employeeId: number): Observable<TaskDto[]> {
+    const url = `${config.baseUrl}/api/tasks/${employeeId}`;
+    return this.http.get<TaskDto[]>(url);
   }
 }

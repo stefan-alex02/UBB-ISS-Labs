@@ -25,6 +25,8 @@ export class AuthInterceptor implements HttpInterceptor {
       }
     });
 
+    console.log('Intercepted HTTP call', authReq);
+
     return next.handle(authReq).pipe(
       tap((event: HttpEvent<any>) => {
         console.log(event);
