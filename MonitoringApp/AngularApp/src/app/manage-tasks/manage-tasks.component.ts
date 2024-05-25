@@ -10,7 +10,7 @@ import {NotificationService} from "../../services/notification.service";
   styleUrl: './manage-tasks.component.css'
 })
 export class ManageTasksComponent implements OnInit {
-  username: string | null = null;
+  viewedUsername: string | null = null;
 
   tasks: TaskDto[] = [];
   selectedRow: number | null = null;
@@ -24,12 +24,17 @@ export class ManageTasksComponent implements OnInit {
               private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.username = this.route.snapshot.paramMap.get('username');
+    this.viewedUsername = this.route.snapshot.paramMap.get('username');
     this.displayTasks();
     this.notificationService.logoutNotification$.subscribe({
       next: (attendance) => {
-        console.log('Logout notification received:', attendance);
-        this.router.navigate(['/manager-dashboard']);
+        if (attendance.username === this.viewedUsername) {
+          console.log('Employee logout notification received:', attendance);
+          this.router.navigate(['/manager-dashboard']);
+        }
+        else {
+          console.log('Another user logout notification received:', attendance);
+        }
       }
     });
     this.notificationService.completeTaskNotification$.subscribe({
@@ -46,7 +51,7 @@ export class ManageTasksComponent implements OnInit {
 
   private displayTasks() {
     // Display tasks for the user with this.username
-    this.taskService.getTasksForEmployee(this.username ?? '').subscribe({
+    this.taskService.getTasksForEmployee(this.viewedUsername ?? '').subscribe({
       next: (tasks) => {
         console.log('Received tasks:', tasks);
         this.tasks = tasks;

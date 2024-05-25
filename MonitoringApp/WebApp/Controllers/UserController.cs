@@ -15,7 +15,7 @@ namespace WebApp.Controllers;
 public class UserController(UserService userService, AttendanceService attendanceService, JwtService jwtService, 
     IHubContext<NotificationHub, INotificationHub> hubContext) : Controller {
     [HttpPost("api/users/login")]
-    public async Task<ActionResult<LoginResponse>> Login([FromBody] LoginRequest loginRequest) {
+    public ActionResult<LoginResponse> Login([FromBody] LoginRequest loginRequest) {
         try {
             User user = userService.Authenticate(loginRequest.Username, loginRequest.Password);
             var token = jwtService.GenerateToken(user.Id, user.Username, user.Name, user.UserRole);

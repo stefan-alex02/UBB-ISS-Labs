@@ -104,17 +104,17 @@ export class AuthService {
     return localStorage.getItem('username') ?? '';
   }
 
-  public getUserId(): number {
-    return Number(localStorage.getItem('id') ?? -1);
-  }
+    public getUserId(): number {
+      return Number(localStorage.getItem('id') ?? -1);
+    }
 
-  public getUserRole(): number {
-    return Number(localStorage.getItem('user_role'));
-  }
+    public getUserRole(): UserRoles {
+      return Number(localStorage.getItem('user_role'));
+    }
 
-  public getName(): string {
-    return localStorage.getItem('name') ?? '';
-  }
+    public getName(): string {
+      return localStorage.getItem('name') ?? '';
+    }
 
   public hasAttended(): boolean {
     return localStorage.getItem('has_attended') === "1";

@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {NotificationService} from "../../services/notification.service";
 import {AuthService} from "../../services/auth.service";
 import {AttendanceDto} from "../../model/attendance-dto";
+import {UserRoles} from "../../model/data/user-roles";
 
 @Component({
   selector: 'app-manager-dashboard',
@@ -35,8 +36,13 @@ export class ManagerDashboardComponent implements OnInit {
     });
     this.notificationService.logoutNotification$.subscribe({
       next: (attendance) => {
-        console.log('Logout notification received:', attendance);
-        this.displayAttendances();
+        if (attendance.userRole === UserRoles.Employee) {
+          console.log('Employee logout notification received:', attendance);
+          this.displayAttendances();
+        }
+        else {
+          console.log('Received logout notification, but the user is not an employee.');
+        }
       }
     });
   }
