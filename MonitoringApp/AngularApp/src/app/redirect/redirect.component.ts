@@ -21,8 +21,16 @@ export class RedirectComponent implements OnInit {
         this.router.navigate(['/manager-dashboard'])
           .then(r => console.log('Redirected to manager dashboard page:', r));
       } else if (this.authService.getUserRole() === UserRoles.Employee) {
-        this.router.navigate(['/attend-page'])
-          .then(r => console.log('Redirected to attend page:', r));
+        if (this.authService.hasAttended()) {
+          console.log('User has already attended today');
+          this.router.navigate(['/employee-dashboard'])
+            .then(r => console.log('Redirected to employee dashboard page:', r));
+        }
+        else {
+          console.log('User has not attended today');
+          this.router.navigate(['/attend-page'])
+            .then(r => console.log('Redirected to attend page:', r));
+        }
       }
     } else {
       console.log('User is not logged in');

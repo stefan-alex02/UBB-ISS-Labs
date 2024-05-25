@@ -9,6 +9,8 @@ namespace WebApp.Authentication;
 public class JwtService(string issuer, string audience, string key, JwtSettings jwtSettings) {
     private readonly SymmetricSecurityKey _signingKey = new(Encoding.UTF8.GetBytes(key));
 
+    public JwtSettings JwtSettings => jwtSettings;
+
     public string GenerateToken(int userId, string username, string name, UserRole userRole) {
         var claims = new[] {
             new Claim("user_id", userId.ToString()),
@@ -22,13 +24,13 @@ public class JwtService(string issuer, string audience, string key, JwtSettings 
             expireAt = DateTime.UtcNow.Add(jwtSettings.ManagerTokenLifetime);
         } else {
             var now = DateTime.UtcNow;
-            expireAt = now.Date.AddHours(jwtSettings.EmployeeTokenEndOfDay.TotalHours);
-            if (now > expireAt) {
-                expireAt = expireAt.AddDays(1); // 6:00 PM of the next day
-            }
-            else if (expireAt - now < jwtSettings.EmployeeTokenLifetime) {
+            // expireAt = now.Date.AddHours(jwtSettings.EmployeeTokenEndOfDay.TotalHours);
+            // if (now > expireAt) {
+            //     expireAt = expireAt.AddDays(1); // 6:00 PM of the next day
+            // }
+            // else if (expireAt - now < jwtSettings.EmployeeTokenLifetime) {
                 expireAt = now.Add(jwtSettings.EmployeeTokenLifetime);
-            }
+            // }
         }
 
         var signingCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);

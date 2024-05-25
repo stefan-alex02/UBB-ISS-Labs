@@ -1,9 +1,13 @@
-﻿namespace Domain.Users;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Domain.Users;
 
 public abstract class User : Entity<int> {
-    
+    [Required]
     public string Username { get; set; } = null!;
+    [Required]
     public string Name { get; set; } = null!;
+    [Required]
     public string Password { get; set; } = null!;
     public UserRole UserRole { get; set; }
     

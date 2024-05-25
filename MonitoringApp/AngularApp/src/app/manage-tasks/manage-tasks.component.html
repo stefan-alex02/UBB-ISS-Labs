@@ -1,0 +1,35 @@
+<div>
+  <button (click)="navigateBack()">Back</button>
+  <table>
+    <thead>
+    <tr>
+      <th>Description</th>
+      <th>Assigned date</th>
+      <th>Assigned time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of tasks; let i = index"
+        [class.selected]="selectedRow === i"
+        (click)="selectRow(i)">
+      <td>{{ task.description.split(' ').slice(0, 3).join(' ') }}...</td>
+      <td>{{ task.assignedDate }}</td>
+      <td>{{ task.assignedTime }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <div *ngIf="selectedRow !== null">
+      <span>Edit task description</span>
+      <textarea [(ngModel)]="taskDescription" placeholder="Add task description"></textarea>
+      <span *ngIf="errorMessage !== null">{{errorMessage}}</span>
+      <button (click)="updateTask()">Update task</button>
+      <button (click)="deleteTask()">Delete task</button>
+    </div>
+    <div *ngIf="selectedRow === null" class="alert">
+      {{ message }}
+    </div>
+  </div>
+</div>
+

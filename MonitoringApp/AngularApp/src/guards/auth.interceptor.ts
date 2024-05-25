@@ -29,11 +29,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(authReq).pipe(
       tap((event: HttpEvent<any>) => {
-        console.log(event);
         if (event instanceof HttpResponse && event.headers.get('Authorization') !== null) {
           const newToken = event.headers.get('Authorization');
           if (newToken) {
-            console.log('New token', newToken);
+            console.log('[Interceptor] New token received:', newToken);
             this.authService.saveJwtToken(newToken.replace('Bearer ', ''));
           }
         }
@@ -44,11 +43,11 @@ export class AuthInterceptor implements HttpInterceptor {
           this.router.navigate(['']);
         }
 
+        console.log('Intercepted error:', error);
+
         // Return the error as an observable
-        return EMPTY;
+        throw error;
       })
     );
-
-
   }
 }

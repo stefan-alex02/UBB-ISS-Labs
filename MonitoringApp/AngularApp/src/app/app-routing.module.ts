@@ -8,13 +8,17 @@ import { RoleGuard } from '../guards/role.guard';
 import { UserRoles } from '../model/data/user-roles';
 import {EmployeeDashboardComponent} from "./employee-dashboard/employee-dashboard.component";
 import {RegisterUserComponent} from "./user-management/register-user/register-user.component";
-import {AppComponent} from "./app.component";
+import {UserWrapperComponent} from "./user-wrapper/user-wrapper.component";
+import {ManageTasksComponent} from "./manage-tasks/manage-tasks.component";
 
 const routes: Routes = [
-  { path: '', component: AppComponent,
+  { path: '', component: UserWrapperComponent,
     children: [
       { path: '', component: RedirectComponent},
       { path: 'manager-dashboard', component: ManagerDashboardComponent,
+        canActivate: [RoleGuard],
+        data: { role: UserRoles.Manager } },
+      { path: 'manage-tasks/:username', component: ManageTasksComponent,
         canActivate: [RoleGuard],
         data: { role: UserRoles.Manager } },
       { path: 'attend-page', component: AttendPageComponent,

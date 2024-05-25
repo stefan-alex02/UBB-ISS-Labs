@@ -43,14 +43,17 @@ public class TaskController(TaskService taskService,
         catch (UnauthorizedException e) {
             return StatusCode(403, e.Message);
         }
+        catch (ArgumentException e) {
+            return BadRequest(e.Message);
+        }
         catch (Exception e) {
             return StatusCode(500, e.Message);
         }
     }
     
-    [HttpGet("api/tasks/{employeeId}")]
+    [HttpGet("api/tasks/{employeeUsername}")]
     [Authorize]
-    public ActionResult<TaskDto[]> GetTasksForEmployee(int employeeId) {
+    public ActionResult<TaskDto[]> GetTasksForEmployee(string employeeUsername) {
         if (HttpContext.User.Identity is not { IsAuthenticated: true }) {
             return Unauthorized();
         }
@@ -63,10 +66,14 @@ public class TaskController(TaskService taskService,
                 return StatusCode(403, "Only managers and employees can view tasks");
             }
 
-            IEnumerable<TaskDto> tasks = taskService.GetOngoingTasksFor(employeeId)
-                .Select(TaskDto.FromTask);
-
-            return Ok(tasks.ToArray());
+            try {
+                IEnumerable<TaskDto> tasks = taskService.GetOngoingTasksFor(employeeUsername)
+                    .Select(TaskDto.FromTask);
+                return Ok(tasks.ToArray());
+            }
+            catch (NotFoundException e) {
+                return NotFound(e.Message);
+            }
         }
         catch (NotFoundException e) {
             return NotFound(e.Message);
@@ -92,7 +99,7 @@ public class TaskController(TaskService taskService,
             }
 
             Domain.Task updatedTask = taskService.UpdateTask(taskId, request.Description, 
-                request.AssignedDate, request.AssignedTime);
+                 DateOnly.Parse(request.AssignedDate), TimeOnly.Parse(request.AssignedTime));
             
             await hubContext.Clients.All.NotifyTaskUpdate(TaskDto.FromTask(updatedTask));
 
@@ -100,6 +107,9 @@ public class TaskController(TaskService taskService,
         }
         catch (NotFoundException e) {
             return NotFound(e.Message);
+        }
+        catch (ArgumentException e) {
+            return BadRequest(e.Message);
         }
         catch (Exception e) {
             return StatusCode(500, e.Message);
@@ -136,9 +146,9 @@ public class TaskController(TaskService taskService,
     }
     
     
-    [HttpPost("api/tasks/{taskId}/complete")]
+    [HttpPut("api/tasks/{taskId}/complete")]
     [Authorize]
-    public IActionResult MarkTaskAsCompleted(int taskId) {
+    public async Task<IActionResult> MarkTaskAsCompleted(int taskId) {
         if (HttpContext.User.Identity is not { IsAuthenticated: true }) {
             return Unauthorized();
         }
@@ -152,6 +162,9 @@ public class TaskController(TaskService taskService,
             }
 
             taskService.MarkTaskAsCompleted(taskId);
+            
+            // Notify the manager
+            await hubContext.Clients.All.NotifyTaskCompletion(taskId);
 
             return Ok();
         }

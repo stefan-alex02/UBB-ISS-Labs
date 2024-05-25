@@ -57,9 +57,10 @@ builder.Services.AddSingleton<JwtService>(serviceProvider => {
     var key = jwtConfig["Key"];
     
     var jwtSettings = new JwtSettings {
-        ManagerTokenLifetime = TimeSpan.Parse(jwtConfig["ManagerTokenLifetime"]),
-        EmployeeTokenLifetime = TimeSpan.Parse(jwtConfig["EmployeeTokenLifetime"]),
-        EmployeeTokenEndOfDay = TimeSpan.Parse(jwtConfig["EmployeeTokenEndOfDay"]),
+        ManagerTokenLifetime = TimeSpan.Parse(jwtConfig["ManagerTokenLifetime"]!),
+        EmployeeTokenLifetime = TimeSpan.Parse(jwtConfig["EmployeeTokenLifetime"]!),
+        EmployeeTokenEndOfDay = TimeSpan.Parse(jwtConfig["EmployeeTokenEndOfDay"]!),
+        RefreshWindow = TimeSpan.Parse(jwtConfig["RefreshWindow"]!)
     };
     
     return new JwtService(issuer, audience, key, jwtSettings);

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
 import config from '../config.json';
 import {Subject} from "rxjs";
+import {AttendanceDto} from "../model/attendance-dto";
+import {TaskDto} from "../model/task-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +11,23 @@ import {Subject} from "rxjs";
 export class NotificationService {
   private hubConnection!: signalR.HubConnection
 
-  private newAttendanceNotificationSubject = new Subject<any>();
+  private newAttendanceNotificationSubject = new Subject<AttendanceDto>();
   public newAttendanceNotification$ = this.newAttendanceNotificationSubject.asObservable();
 
-  private newTaskNotificationSubject = new Subject<any>();
+  private logoutNotificationSubject = new Subject<AttendanceDto>();
+  public logoutNotification$ = this.logoutNotificationSubject.asObservable();
+
+  private newTaskNotificationSubject = new Subject<TaskDto>();
   public newTaskNotification$ = this.newTaskNotificationSubject.asObservable();
 
+  private updateTaskNotificationSubject = new Subject<TaskDto>();
+  public updateTaskNotification$ = this.updateTaskNotificationSubject.asObservable();
+
+  private deleteTaskNotificationSubject = new Subject<number>();
+  public deleteTaskNotification$ = this.deleteTaskNotificationSubject.asObservable();
+
+  private completeTaskNotificationSubject = new Subject<number>();
+  public completeTaskNotification$ = this.completeTaskNotificationSubject.asObservable();
 
   public startConnection = () => {
     this.hubConnection = new signalR.HubConnectionBuilder()
@@ -47,7 +60,7 @@ export class NotificationService {
 
     this.hubConnection.on('NotifyLogout', (attendance) => {
       console.log('Logout notification received:', attendance);
-      // Handle the logout notification here
+      this.logoutNotificationSubject.next(attendance);
     });
 
     this.hubConnection.on('NotifyTask', (task) => {
@@ -57,12 +70,17 @@ export class NotificationService {
 
     this.hubConnection.on('NotifyTaskUpdate', (task) => {
       console.log('Task update notification received:', task);
-      // Handle the task update notification here
+      this.updateTaskNotificationSubject.next(task);
     });
 
     this.hubConnection.on('NotifyTaskDeletion', (taskId) => {
       console.log('Task deletion notification received:', taskId);
-      // Handle the task deletion notification here
+      this.deleteTaskNotificationSubject.next(taskId);
+    });
+
+    this.hubConnection.on('NotifyTaskCompletion', (taskId) => {
+      console.log('Task completion notification received:', taskId);
+      this.completeTaskNotificationSubject.next(taskId);
     });
   }
 
@@ -72,5 +90,6 @@ export class NotificationService {
     this.hubConnection.off('NotifyTask');
     this.hubConnection.off('NotifyTaskUpdate');
     this.hubConnection.off('NotifyTaskDeletion');
+    this.hubConnection.off('NotifyTaskCompletion');
   }
 }

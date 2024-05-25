@@ -36,13 +36,16 @@ public class RefreshTokenMiddleware : IMiddleware {
                     // Calculate the remaining lifetime of the token
                     var remainingLifetime = jwtToken.ValidTo - DateTime.UtcNow;
                 
-                    // If the token is close to expiration (within 5 minutes), refresh it
-                    if (remainingLifetime < TimeSpan.FromMinutes(5)) {
+                    // If the token is close to expiration (within specified window), refresh it
+                    if (remainingLifetime.TotalMilliseconds < 
+                        _jwtService.JwtSettings.RefreshWindow.TotalMilliseconds) {
                         // Generate a new token using the existing claims
                         int userId = int.Parse(principal.FindFirst("user_id").Value);
                         string username = principal.FindFirst("username").Value;
                         string name = principal.FindFirst("name").Value;
                         UserRole userRole = (UserRole)int.Parse(principal.FindFirst("user_role").Value);
+                        
+                        // If the user is an employee, expand the attendance end time
                         
                         var newToken = _jwtService.GenerateToken(userId, username, name, userRole);
 

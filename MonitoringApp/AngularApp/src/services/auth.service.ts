@@ -5,6 +5,7 @@ import config from '../config.json';
 import {jwtDecode} from "jwt-decode";
 import moment from 'moment';
 import {NotificationService} from "./notification.service";
+import {UserRoles} from "../model/data/user-roles";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class AuthService {
   constructor(private http: HttpClient,
               private notificationService: NotificationService) { }
 
-  public login(username: string, password: string): Observable<any> {
+  public login(username: string | null,
+               password: string | null): Observable<any> {
     return this.http.post(this.loginUrl,
       { Username: username, Password: password},
       { withCredentials: true }).pipe(tap(
@@ -38,9 +40,11 @@ export class AuthService {
     );
   }
 
-  public register(username: string, password: string): Observable<any> {
+  public register(username: string | null,
+                  name: string | null,
+                  password: string | null): Observable<any> {
     return this.http.post(this.registerUrl,
-      { Username: username, Name: username, Password: password}).pipe(
+      { Username: username, Name: name, Password: password}).pipe(
       tap(() => {
         console.log('User registered');
       }
@@ -54,6 +58,7 @@ export class AuthService {
     localStorage.setItem('token', token);
     localStorage.setItem('id', decodedToken.user_id);
     localStorage.setItem('username', decodedToken.username);
+    localStorage.setItem('name', decodedToken.name);
     localStorage.setItem('user_role', decodedToken.user_role);
     localStorage.setItem('expires_at', decodedToken.exp);
 
@@ -64,8 +69,11 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('id');
     localStorage.removeItem('username');
+    localStorage.removeItem('name');
     localStorage.removeItem('user_role');
     localStorage.removeItem('expires_at');
+
+    localStorage.removeItem('has_attended');
 
     console.log('Token removed');
   }
@@ -102,5 +110,20 @@ export class AuthService {
 
   public getUserRole(): number {
     return Number(localStorage.getItem('user_role'));
+  }
+
+  public getName(): string {
+    return localStorage.getItem('name') ?? '';
+  }
+
+  public hasAttended(): boolean {
+    return localStorage.getItem('has_attended') === "1";
+  }
+
+  public setHasAttended(hasAttended: boolean) {
+    if (this.getUserRole() !== UserRoles.Employee) {
+      return;
+    }
+    localStorage.setItem('has_attended', hasAttended ? "1" : "0");
   }
 }

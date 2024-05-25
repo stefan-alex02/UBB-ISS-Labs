@@ -8,8 +8,8 @@ import {AuthService} from "../../../services/auth.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  username = '';
-  password = '';
+  username : string | null = null;
+  password : string | null = null;
   errorMessage: string | undefined = undefined;
 
   constructor(
@@ -24,7 +24,7 @@ export class LoginComponent {
         this.router.navigate(['/']);
       },
       error: (error) => {
-        this.errorMessage = error.error.message;
+        this.errorMessage = error.error;
       }
     });
   }

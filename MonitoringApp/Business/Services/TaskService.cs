@@ -5,13 +5,21 @@ using Persistence.UnitOfWork;
 namespace Business.Services;
 
 public class TaskService(IUnitOfWork unitOfWork) {
-    public IEnumerable<Domain.Task> GetOngoingTasksFor(int employeeId) {
+    public IEnumerable<Domain.Task> GetOngoingTasksFor(string employeeUsername) {
+        if (unitOfWork.UserRepository.GetByUsername(employeeUsername) is null) {
+            throw new NotFoundException("User not found");
+        }
+        
         return unitOfWork.TaskRepository
-            .Find(task => task.AssignedTo.Id == employeeId && !task.IsComplete);
+            .Find(task => task.AssignedTo.Username == employeeUsername && !task.IsComplete);
     }
     
     public Domain.Task UpdateTask(int taskId, string description, DateOnly assignedDate, 
         TimeOnly assignedTime) {
+        if (description.Length == 0) {
+            throw new ArgumentException("Description cannot be empty");
+        }
+        
         Domain.Task? task = unitOfWork.TaskRepository.Get(taskId);
         
         if (task is null) {
@@ -47,6 +55,10 @@ public class TaskService(IUnitOfWork unitOfWork) {
         }
         if (createdBy is not Manager createdByManager) { 
             throw new UnauthorizedException("Only managers can assign tasks");
+        }
+        
+        if (description is null || description.Length == 0) {
+            throw new ArgumentException("Description cannot be empty");
         }
         
         User? assignedTo = unitOfWork.UserRepository.GetByUsername(assignedToUsername);

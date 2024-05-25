@@ -22,6 +22,19 @@ public class UserController(UserService userService, AttendanceService attendanc
             
             Console.WriteLine($"User {user.Username} logged in with ID {user.Id}");
             
+            // Finished any old unfinished attendances if the user is an employee
+            if (user.UserRole == UserRole.Employee) {
+                try {
+                    Attendance _ = attendanceService
+                        .EndAttendanceOf(user.Id, TimeOnly.FromDateTime(DateTime.Now));
+
+                    Console.WriteLine($"Ended unfinished attendance for user {user.Username}");
+                }
+                catch (NotFoundException) {
+                    Console.WriteLine($"No unfinished attendance found for user {user.Username}");
+                }
+            }
+            
             Response.Headers["Authorization"] = $"Bearer {token}";
             LoginResponse loginResponse = new LoginResponse(token);
             
@@ -46,16 +59,21 @@ public class UserController(UserService userService, AttendanceService attendanc
             .First(c => c.Type == "user_role").Value);
         
         if (userRole == UserRole.Employee) {
-            // Get the user ID from the JWT token
-            int userId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == "user_id").Value);
-
-            // Mark the attendance as finished
-            Attendance attendance = attendanceService
-                .EndAttendanceOf(userId, TimeOnly.FromDateTime(DateTime.Now));
-        
-            // Notify all clients
-            Console.WriteLine("User logging out, sending notification...");
-            await hubContext.Clients.All.NotifyLogout(AttendanceDto.FromAttendance(attendance));
+            try {
+                // Get the user ID from the JWT token
+                int userId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == "user_id").Value);
+                
+                // Mark the attendance as finished
+                Attendance attendance = attendanceService
+                    .EndAttendanceOf(userId, TimeOnly.FromDateTime(DateTime.Now));
+                
+                // Notify all clients
+                Console.WriteLine("User logging out, sending notification...");
+                await hubContext.Clients.All.NotifyLogout(AttendanceDto.FromAttendance(attendance));
+            }
+            catch (NotFoundException) {
+                Console.WriteLine("No unfinished attendance found for user");
+            }
         }
         
         return Ok();
@@ -71,7 +89,7 @@ public class UserController(UserService userService, AttendanceService attendanc
             return StatusCode(450, e.Message);
         }
         catch (Exception e) {
-            return BadRequest();
+            return BadRequest(e.Message);
         }
     }
 }

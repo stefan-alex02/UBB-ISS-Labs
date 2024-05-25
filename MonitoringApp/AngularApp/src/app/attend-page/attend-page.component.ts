@@ -17,6 +17,10 @@ export class AttendPageComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    if (this.authService.hasAttended()) {
+      console.log('User has already attended today');
+      this.router.navigate(['/employee-dashboard']);
+    }
   }
 
   attend(): void {
@@ -24,6 +28,7 @@ export class AttendPageComponent implements OnInit {
       next: (response) => {
         console.log('Attendance added with success');
         this.attendanceTime = '';
+        this.authService.setHasAttended(true);
         this.router.navigate(['/employee-dashboard']);
       },
       error: (error) => {

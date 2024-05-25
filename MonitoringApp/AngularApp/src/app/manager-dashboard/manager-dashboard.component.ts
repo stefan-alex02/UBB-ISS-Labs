@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AttendanceService } from '../../services/attendance.service';
-import { TasksService } from '../../services/task.service';
+import { TaskService } from '../../services/task.service';
 import {Router} from "@angular/router";
 import {NotificationService} from "../../services/notification.service";
 import {AuthService} from "../../services/auth.service";
-import {tap} from "rxjs";
 import {AttendanceDto} from "../../model/attendance-dto";
 
 @Component({
@@ -13,23 +12,30 @@ import {AttendanceDto} from "../../model/attendance-dto";
   styleUrls: ['./manager-dashboard.component.css']
 })
 export class ManagerDashboardComponent implements OnInit {
+  showAssignTaskEditor: boolean = false;
+
   attendances: AttendanceDto[] = [];
   selectedRow: number | null = null;
-  successMessage: string | null = null;
+  message: string = "Select a message";
   taskDescription: string = '';
 
   constructor(private authService: AuthService,
               private attendanceService: AttendanceService,
-              private tasksService: TasksService,
+              private tasksService: TaskService,
               private router: Router,
               private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.displayAttendances();
-    this.notificationService.startConnection();
     this.notificationService.newAttendanceNotification$.subscribe({
       next: (attendance) => {
         console.log('Attendance notification received:', attendance);
+        this.displayAttendances();
+      }
+    });
+    this.notificationService.logoutNotification$.subscribe({
+      next: (attendance) => {
+        console.log('Logout notification received:', attendance);
         this.displayAttendances();
       }
     });
@@ -47,6 +53,19 @@ export class ManagerDashboardComponent implements OnInit {
     });
   }
 
+  selectRow(i: number) {
+    this.selectedRow = this.selectedRow === i ? null : i;
+    this.showAssignTaskEditor = false;
+    this.message = "Select a message";
+  }
+
+  navigateToManageTasks(): void {
+    if (this.selectedRow !== undefined && this.selectedRow !== null) {
+      this.router.navigate(['/manage-tasks',
+        this.attendances[this.selectedRow].username]);
+    }
+  }
+
   assignTask(): void {
     if (this.selectedRow !== undefined && this.selectedRow !== null) {
       const managerUsername = this.authService.getUsername();
@@ -54,8 +73,7 @@ export class ManagerDashboardComponent implements OnInit {
 
       this.tasksService.assignTask(managerUsername, employeeUsername, this.taskDescription).subscribe({
         next: (data) => {
-          this.successMessage = 'Task added with success';
-          setTimeout(() => this.successMessage = null, 5000);
+          this.message = 'Task added with success';
           this.taskDescription = '';
           this.selectedRow = null;
         },
@@ -66,10 +84,7 @@ export class ManagerDashboardComponent implements OnInit {
     }
   }
 
-  logout(): void {
-    this.authService.logout().subscribe(() => {
-      console.log('Logged out');
-      this.router.navigate(['/login']);
-    });
+  navigateToRegister() {
+    this.router.navigate(['/register']);
   }
 }

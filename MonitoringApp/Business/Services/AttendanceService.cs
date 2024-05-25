@@ -8,7 +8,8 @@ namespace Business.Services;
 public class AttendanceService(IUnitOfWork unitOfWork) {
     public IEnumerable<Attendance> GetUnfinishedAttendances() {
         return unitOfWork.AttendanceRepository
-            .Find(a => a.End == null);
+            .Find(a => a.End == null && 
+                       a.Day == DateOnly.FromDateTime(DateTime.Today));
     }
     
     public Attendance RecordAttendance(string employeeUsername, TimeOnly startTime) {

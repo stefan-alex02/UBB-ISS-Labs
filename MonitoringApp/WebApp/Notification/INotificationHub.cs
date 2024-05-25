@@ -8,4 +8,5 @@ public interface INotificationHub {
     public Task NotifyTask(TaskDto task);
     public Task NotifyTaskUpdate(TaskDto task);
     public Task NotifyTaskDeletion(int taskId);
+    public Task NotifyTaskCompletion(int taskId);
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -13,6 +13,8 @@ import { RedirectComponent } from './redirect/redirect.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { RegisterUserComponent } from './user-management/register-user/register-user.component';
 import {AuthInterceptor} from "../guards/auth.interceptor";
+import { UserWrapperComponent } from './user-wrapper/user-wrapper.component';
+import { ManageTasksComponent } from './manage-tasks/manage-tasks.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,17 @@ import {AuthInterceptor} from "../guards/auth.interceptor";
     AttendPageComponent,
     RedirectComponent,
     EmployeeDashboardComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    UserWrapperComponent,
+    ManageTasksComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

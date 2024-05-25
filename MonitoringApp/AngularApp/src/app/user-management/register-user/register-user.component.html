@@ -1,1 +1,21 @@
-<p>register-user works!</p>
+<div>
+  <h2>Register</h2>
+  <form [formGroup]="registerForm" *ngIf="!successMessage" (ngSubmit)="register()">
+    <label>
+      Username:
+      <input type="text" formControlName="username" required>
+    </label>
+    <label>
+      Name:
+      <input type="text" formControlName="name" required>
+    </label>
+    <label>
+      Password:
+      <input type="password" formControlName="password" required>
+    </label>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <button type="submit">Register</button>
+  </form>
+  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  <p>Already have an account? <a routerLink="/login">Login</a></p>
+</div>

@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
-import {AttendanceDto} from "../../model/attendance-dto";
 import {NotificationService} from "../../services/notification.service";
-import {TasksService} from "../../services/task.service";
+import {TaskService} from "../../services/task.service";
 import {TaskDto} from "../../model/task-dto";
 
 @Component({
@@ -16,25 +15,36 @@ export class EmployeeDashboardComponent implements OnInit{
   selectedRow: number | null = null;
 
   constructor(private authService: AuthService,
-              private tasksService: TasksService,
+              private tasksService: TaskService,
               private notificationService: NotificationService,
               private router: Router) { }
 
   ngOnInit(): void {
     this.displayTasks();
-    this.notificationService.startConnection();
     this.notificationService.newTaskNotification$.subscribe({
       next: (task) => {
         console.log('Task notification received:', task);
         this.displayTasks();
       }
     });
+    this.notificationService.updateTaskNotification$.subscribe({
+      next: (task) => {
+        console.log('Task update notification received:', task);
+        this.displayTasks();
+      }
+    });
+    this.notificationService.deleteTaskNotification$.subscribe({
+      next: (taskId) => {
+        console.log('Task delete notification received:', taskId);
+        this.displayTasks();
+      }
+    });
   }
 
-  logout(): void {
-    this.authService.logout().subscribe({
+  completeTask(task: any) {
+    this.tasksService.completeTask(task.id).subscribe({
       next: () => {
-        this.router.navigate(['/login']);
+        this.displayTasks();
       },
       error: (error) => {
         console.error('Error:', error);
@@ -42,12 +52,8 @@ export class EmployeeDashboardComponent implements OnInit{
     });
   }
 
-  completeTask(task: any) {
-
-  }
-
   private displayTasks() {
-    this.tasksService.getTasksForEmployee(this.authService.getUserId()).subscribe({
+    this.tasksService.getTasksForEmployee(this.authService.getUsername()).subscribe({
       next: (data) => {
         console.log('Received tasks:', data);
         this.tasks = data;
