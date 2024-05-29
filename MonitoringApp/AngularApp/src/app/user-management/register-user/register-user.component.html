@@ -1,21 +1,22 @@
-<div>
-  <h2>Register</h2>
-  <form [formGroup]="registerForm" *ngIf="!successMessage" (ngSubmit)="register()">
+<div class="auth-wrapper-div">
+  <form class="grey-form"
+    [formGroup]="registerForm" *ngIf="!successMessage" (ngSubmit)="register()">
+    <h2>Register user account</h2>
     <label>
-      Username:
+      Give username:
       <input type="text" formControlName="username" required>
     </label>
     <label>
-      Name:
+      Give name:
       <input type="text" formControlName="name" required>
     </label>
     <label>
-      Password:
+      Give password:
       <input type="password" formControlName="password" required>
     </label>
-    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
     <button type="submit">Register</button>
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
   </form>
-  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
-  <p>Already have an account? <a routerLink="/login">Login</a></p>
 </div>

@@ -1,6 +1,12 @@
-<div>
-  <span>Welcome, {{getUserRoleString()}} {{this.userName}}</span>
-  <button (click)="logout()">Logout</button>
+<div class="user-wrapper-div"
+     [style.background-image]="getBackgroundImage()">
+  <div class="user-menu">
+    <span>
+      <img ngSrc="assets/icons/user.png" class="icon" alt="user" height="512" width="512">
+      Welcome, {{getUserRoleString()}} {{this.userName}}
+    </span>
+    <button class="logout" (click)="logout()">Logout</button>
+  </div>
+  <router-outlet/>
 </div>
 
-<router-outlet/>

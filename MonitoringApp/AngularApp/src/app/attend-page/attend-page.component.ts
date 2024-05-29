@@ -40,16 +40,4 @@ export class AttendPageComponent implements OnInit {
       }
     });
   }
-
-  logout() {
-    this.authService.clearJwtToken();
-    this.authService.logout().subscribe(
-      response => {
-        this.router.navigate(['/login']);
-      },
-      error => {
-        console.error('Error:', error);
-      }
-    )
-  }
 }

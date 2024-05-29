@@ -34,6 +34,7 @@ export class AuthInterceptor implements HttpInterceptor {
           if (newToken) {
             console.log('[Interceptor] New token received:', newToken);
             this.authService.saveJwtToken(newToken.replace('Bearer ', ''));
+            this.authService.isTokenExpired();
           }
         }
       }),

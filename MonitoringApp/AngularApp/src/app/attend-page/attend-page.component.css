@@ -1,27 +1,58 @@
-label {
+div.attend-page-wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
-input {
+div.welcome-div {
+  margin-bottom: 40px;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 15px 35px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  width: 30vw;
+  max-width: 500px;
+  text-align: center;
+  display: inline-block;
+}
+
+div.wrapper-arrival {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  height: 30vh;
+  background-color: #bac697;
+  border-radius: 20px;
+  width: 20vw;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 6px 6px 8px 0 rgba(0,0,0,0.7);
+}
+
+div.wrapper-arrival input {
+  width: 40%;
+  height: 40px;
+  background-color: #fcfdca;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 20%;
-}
-
-.error {
-  color: red;
-  margin-bottom: 15px;
-}
-
-button {
-  padding: 10px 20px;
-  border-radius: 5px;
+  margin: 10px;
+  outline: none;
   border: none;
-  background-color: #007BFF;
-  color: white;
-  cursor: pointer;
+}
+
+div.wrapper-arrival input:focus {
+  background-color: #f7f8a6;
+}
+
+div .error {
+  color: #d62323;
+  margin: 0;
+  font-weight: bold;
 }

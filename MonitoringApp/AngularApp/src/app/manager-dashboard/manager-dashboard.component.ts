@@ -13,12 +13,20 @@ import {UserRoles} from "../../model/data/user-roles";
   styleUrls: ['./manager-dashboard.component.css']
 })
 export class ManagerDashboardComponent implements OnInit {
+  readonly selectMessage : string = 'Select an employee to manage their tasks';
+  readonly successMessage : string = 'Task added with success';
+
   showAssignTaskEditor: boolean = false;
 
   attendances: AttendanceDto[] = [];
   selectedRow: number | null = null;
-  message: string = "Select a message";
+  message: string = this.selectMessage;
   taskDescription: string = '';
+  errorMessage: string | null = null
+
+  notificationMessage: string | null = null;
+  notificationType: string | null = null;
+  notificationTimeoutId: any;
 
   constructor(private authService: AuthService,
               private attendanceService: AttendanceService,
@@ -31,6 +39,7 @@ export class ManagerDashboardComponent implements OnInit {
     this.notificationService.newAttendanceNotification$.subscribe({
       next: (attendance) => {
         console.log('Attendance notification received:', attendance);
+        this.notifyLogin(attendance);
         this.displayAttendances();
       }
     });
@@ -38,6 +47,7 @@ export class ManagerDashboardComponent implements OnInit {
       next: (attendance) => {
         if (attendance.userRole === UserRoles.Employee) {
           console.log('Employee logout notification received:', attendance);
+          this.notifyLogout(attendance);
           this.displayAttendances();
         }
         else {
@@ -62,7 +72,8 @@ export class ManagerDashboardComponent implements OnInit {
   selectRow(i: number) {
     this.selectedRow = this.selectedRow === i ? null : i;
     this.showAssignTaskEditor = false;
-    this.message = "Select a message";
+    this.message = this.selectMessage;
+    this.errorMessage = null;
   }
 
   navigateToManageTasks(): void {
@@ -79,12 +90,13 @@ export class ManagerDashboardComponent implements OnInit {
 
       this.tasksService.assignTask(managerUsername, employeeUsername, this.taskDescription).subscribe({
         next: (data) => {
-          this.message = 'Task added with success';
+          this.message = this.successMessage;
           this.taskDescription = '';
           this.selectedRow = null;
         },
         error: (error) => {
           console.error('Error:', error);
+          this.errorMessage = 'Error: ' + error.error;
         }
       });
     }
@@ -92,5 +104,25 @@ export class ManagerDashboardComponent implements OnInit {
 
   navigateToRegister() {
     this.router.navigate(['/register']);
+  }
+
+  notifyLogin(attendance: AttendanceDto) {
+    this.notificationMessage = `User ${attendance.name} just logged in`;
+    this.notificationType = 'login';
+
+    clearTimeout(this.notificationTimeoutId);
+    this.notificationTimeoutId = setTimeout(() => {
+      this.notificationMessage = null;
+    }, 5000);
+  }
+
+  notifyLogout(attendance: AttendanceDto) {
+    this.notificationMessage = `User ${attendance.name} just logged out`;
+    this.notificationType = 'logout';
+
+    clearTimeout(this.notificationTimeoutId);
+    this.notificationTimeoutId = setTimeout(() => {
+      this.notificationMessage = null;
+    }, 5000);
   }
 }

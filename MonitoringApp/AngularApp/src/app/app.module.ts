@@ -15,6 +15,7 @@ import { RegisterUserComponent } from './user-management/register-user/register-
 import {AuthInterceptor} from "../guards/auth.interceptor";
 import { UserWrapperComponent } from './user-wrapper/user-wrapper.component';
 import { ManageTasksComponent } from './manage-tasks/manage-tasks.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -28,13 +29,14 @@ import { ManageTasksComponent } from './manage-tasks/manage-tasks.component';
     UserWrapperComponent,
     ManageTasksComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgOptimizedImage
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

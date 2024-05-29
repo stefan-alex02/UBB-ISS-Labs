@@ -23,14 +23,13 @@ public class JwtService(string issuer, string audience, string key, JwtSettings 
         if (userRole == UserRole.Manager) {
             expireAt = DateTime.UtcNow.Add(jwtSettings.ManagerTokenLifetime);
         } else {
-            var now = DateTime.UtcNow;
-            // expireAt = now.Date.AddHours(jwtSettings.EmployeeTokenEndOfDay.TotalHours);
-            // if (now > expireAt) {
-            //     expireAt = expireAt.AddDays(1); // 6:00 PM of the next day
-            // }
-            // else if (expireAt - now < jwtSettings.EmployeeTokenLifetime) {
+            var now = DateTime.Now;
+            expireAt = now.Date.AddHours(jwtSettings.EmployeeTokenEndOfDay.TotalHours);
+            if (now > expireAt || expireAt - now < jwtSettings.EmployeeTokenLifetime) {
                 expireAt = now.Add(jwtSettings.EmployeeTokenLifetime);
-            // }
+            }
+
+            Console.WriteLine($"Token for user {username} expires at {expireAt}");
         }
 
         var signingCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);

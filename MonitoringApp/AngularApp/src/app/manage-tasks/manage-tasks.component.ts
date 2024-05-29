@@ -10,11 +10,15 @@ import {NotificationService} from "../../services/notification.service";
   styleUrl: './manage-tasks.component.css'
 })
 export class ManageTasksComponent implements OnInit {
+  readonly selectMessage : string = 'Select a task';
+  readonly successUpdateMessage : string = 'Task updated with success';
+  readonly successDeleteMessage : string = 'Task deleted with success';
+
   viewedUsername: string | null = null;
 
   tasks: TaskDto[] = [];
   selectedRow: number | null = null;
-  message: string = "Select a message";
+  message: string = this.selectMessage;
   errorMessage: string | null = null
   taskDescription: string = '';
 
@@ -65,7 +69,8 @@ export class ManageTasksComponent implements OnInit {
   selectRow(i: number) {
     this.selectedRow = this.selectedRow === i ? null : i;
     this.taskDescription = this.tasks[i].description;
-    this.message = "Select a message";
+    this.message = this.selectMessage;
+    this.errorMessage = null;
   }
 
   updateTask() {
@@ -83,7 +88,7 @@ export class ManageTasksComponent implements OnInit {
       this.selectedRow = null;
       this.taskService.updateTask(task.id, this.taskDescription).subscribe({
         next: () => {
-          this.message = 'Task updated with success';
+          this.message = this.successUpdateMessage;
           this.displayTasks();
         },
         error: (error) => {
@@ -100,7 +105,7 @@ export class ManageTasksComponent implements OnInit {
       this.selectedRow = null;
       this.taskService.deleteTask(task.id).subscribe({
         next: () => {
-          this.message = 'Task deleted with success';
+          this.message = this.successDeleteMessage;
           this.displayTasks();
         },
         error: (error) => {

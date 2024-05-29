@@ -1,33 +1,60 @@
-<div>
-  <button (click)="navigateBack()">Back</button>
-  <table>
-    <thead>
-    <tr>
-      <th>Description</th>
-      <th>Assigned date</th>
-      <th>Assigned time</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let task of tasks; let i = index"
-        [class.selected]="selectedRow === i"
-        (click)="selectRow(i)">
-      <td>{{ task.description.split(' ').slice(0, 3).join(' ') }}...</td>
-      <td>{{ task.assignedDate }}</td>
-      <td>{{ task.assignedTime }}</td>
-    </tr>
-    </tbody>
-  </table>
-
-  <div>
-    <div *ngIf="selectedRow !== null">
-      <span>Edit task description</span>
-      <textarea [(ngModel)]="taskDescription" placeholder="Add task description"></textarea>
-      <span *ngIf="errorMessage !== null">{{errorMessage}}</span>
-      <button (click)="updateTask()">Update task</button>
-      <button (click)="deleteTask()">Delete task</button>
+<div class="tasks-dashboard">
+  <div class="table-view">
+    <div  class="header-wrapper">
+      <button class="yellow" (click)="navigateBack()">🢀</button>
+      <h2>Assigned tasks for {{this.viewedUsername}}</h2>
     </div>
-    <div *ngIf="selectedRow === null" class="alert">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+        <tr>
+          <th>Description</th>
+          <th>Assigned date</th>
+          <th>Assigned time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let task of tasks; let i = index"
+            [class.selected]="selectedRow === i"
+            [ngClass]="{'selected': selectedRow === i}"
+            (click)="selectRow(i)">
+          <td>{{ task.description.split(' ').slice(0, 3).join(' ') }}...</td>
+          <td>{{ task.assignedDate }}</td>
+          <td>{{ task.assignedTime }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="selection-view">
+    <div class="handle-selection"
+      *ngIf="selectedRow !== null">
+      <h3>Task details</h3>
+      <p>Description:</p>
+      <textarea [(ngModel)]="taskDescription" placeholder="Add task description"></textarea>
+      <p class="error-message" *ngIf="errorMessage !== null">Error: {{errorMessage}}</p>
+      <div>
+        <button class="yellow" (click)="updateTask()">
+          <img ngSrc="assets/icons/edit.png" alt="[delete]" height="20" width="20">
+          Update task
+        </button>
+        <button class="red" (click)="deleteTask()">
+          <img ngSrc="assets/icons/trash.png" alt="[delete]" height="20" width="20">
+          Delete task
+        </button>
+      </div>
+    </div>
+    <div *ngIf="selectedRow === null" class="alert"
+    [ngClass]="{'success' : message === successUpdateMessage || message === successDeleteMessage}">
+      <img *ngIf="message === selectMessage"
+        ngSrc="assets/icons/list-option.png" alt="alert" height="80" width="80">
+      <img *ngIf="message === successUpdateMessage"
+        ngSrc="assets/icons/data-processing.png" alt="alert" height="80" width="80">
+      <img *ngIf="message === successDeleteMessage"
+        ngSrc="assets/icons/trash.png" alt="alert" height="80" width="80">
       {{ message }}
     </div>
   </div>

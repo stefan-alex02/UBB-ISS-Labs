@@ -1,7 +1,13 @@
-<label for="time">Please type attending time:</label>
-<input [(ngModel)]="attendanceTime" type="text" placeholder="HH:MM" id="time">
-<button (click)="attend()">Attend</button>
-<br>
-<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<div class="attend-page-wrapper">
+  <div class="welcome-div">
+    Welcome employee
+  </div>
 
-<button (click)="logout()">Logout</button>
+  <div class="wrapper-arrival">
+    <label for="time">Please write down time of arrival</label>
+    <input [(ngModel)]="attendanceTime" type="text" placeholder="HH:MM" id="time">
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <button class="green" (click)="attend()">Attend</button>
+  </div>
+</div>
+

@@ -1,15 +1,21 @@
-<form (ngSubmit)="login()">
-  <label>
-    Username:
-    <input type="text" [(ngModel)]="username" name="username" required>
-  </label>
-  <label>
-    Password:
-    <input type="password" [(ngModel)]="password" name="password" required>
-  </label>
-  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-  <button type="submit">Login</button>
-  <p>
-    Don't have an account? <a routerLink="/register">Register</a>
-  </p>
-</form>
+<div class="auth-wrapper-div">
+  <div>
+    <h2>Welcome to company infrastructure</h2>
+  </div>
+
+  <form (ngSubmit)="login()">
+    <label>
+      Username:
+      <input type="text" [(ngModel)]="username" name="username" required>
+    </label>
+    <label>
+      Password:
+      <input type="password" [(ngModel)]="password" name="password" required>
+    </label>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <button type="submit">Login</button>
+    <p>
+      Don't have an account? <a routerLink="/register">Register</a>
+    </p>
+  </form>
+</div>

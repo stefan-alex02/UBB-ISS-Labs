@@ -19,7 +19,7 @@ export class RegisterUserComponent {
   registerForm = this.fb.group({
     username: ['', Validators.required],
     name: ['', Validators.required],
-    password: ['', [Validators.required, Validators.minLength(8)]]
+    password: ['', [Validators.required, Validators.minLength(2)]]
   });
 
   constructor (private authService: AuthService,

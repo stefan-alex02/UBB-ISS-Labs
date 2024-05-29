@@ -1,1 +1,184 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family: Calibri, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.auth-wrapper-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('https://static.vecteezy.com/system/resources/thumbnails/023/070/651/small_2x/office-space-in-the-evening-backdrop-created-with-generative-ai-photo.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.auth-wrapper-div div {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  width: 60%;
+  max-width: 500px;
+  text-align: center;
+  display: inline-block;
+  margin: 40px;
+}
+
+.auth-wrapper-div form {
+  box-shadow: 6px 6px 8px 0 rgba(0,0,0,0.7);
+  background-color: #bac697;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 60%;
+  max-width: 400px;
+  border-radius: 25px;
+}
+
+.auth-wrapper-div form.grey-form {
+  background-color: #9c948c;
+  color: white;
+}
+
+.auth-wrapper-div form label {
+  font-weight: bold;
+  text-align: right;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.auth-wrapper-div form * {
+  font-size: 18px;
+}
+
+.auth-wrapper-div form h2 {
+  margin: 0;
+  padding: 10px;
+  font-size: 24px;
+}
+
+.auth-wrapper-div form .error {
+  color: #d62323;
+  margin: 0;
+  font-weight: bold;
+}
+
+.auth-wrapper-div form button {
+  background-color: #6e8171;
+  box-shadow: 3px 4px 6px 0 rgba(0,0,0,0.5);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  padding: 10px 32px;
+  margin: 10px 0;
+  width: 120px;
+  justify-content: center;
+  display: flex;
+}
+
+.auth-wrapper-div form button:hover {
+  background-color: #62756a;
+  cursor: pointer;
+}
+
+.auth-wrapper-div form button:active {
+  background-color: #4a574c;
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.5);
+}
+
+.auth-wrapper-div form input[type=text], form input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1dba2;
+  outline: none;
+}
+
+.auth-wrapper-div form input[type=text]:focus, form input[type=password]:focus {
+  background-color: #f7e9b1;
+  border: 2px solid #6e8171;
+}
+
+.auth-wrapper-div p a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #eab057;
+  box-shadow: 3px 4px 6px 0 rgba(0,0,0,0.5);
+  padding: 6px 15px;
+  border: none;
+  border-radius: 12px;
+}
+
+.auth-wrapper-div p a:hover {
+  background-color: #d9a94a;
+  cursor: pointer;
+}
+
+.auth-wrapper-div p a:active {
+  background-color: #c08b3e;
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.5);
+}
+
+button {
+  box-shadow: 3px 4px 6px 0 rgba(0,0,0,0.5);
+  border: none;
+  border-radius: 15px;
+  padding: 10px 32px;
+  margin: 10px 0;
+  justify-content: center;
+  display: flex;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.5);
+}
+
+button.yellow {
+  background-color: #ead89a;
+  color: #000;
+  font-weight: bold;
+}
+button.yellow:hover {
+  background-color: #d9c67f;
+}
+button.yellow:active {
+  background-color: #c8b564;
+}
+
+button.red {
+  background-color: #d7a08d;
+  color: #000;
+  font-weight: bold;
+}
+button.red:hover {
+  background-color: #c88b75;
+}
+button.red:active {
+  background-color: #b57661;
+}
+
+button.green {
+  background-color: #6e8171;
+  color: #fff;
+  font-weight: bold;
+}
+button.green:hover {
+  background-color: #62756a;
+}
+button.green:active {
+  background-color: #4a574c;
+}

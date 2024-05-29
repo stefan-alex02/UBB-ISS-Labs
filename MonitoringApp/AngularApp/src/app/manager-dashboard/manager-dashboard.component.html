@@ -1,38 +1,71 @@
-<div>
-  <div>
-    <h3>Manager dashboard</h3>
-    <table>
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Attending time</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let employee of attendances; let i = index"
-          [class.selected]="selectedRow === i"
-          (click)="selectRow(i)">
-        <td>{{ employee.name }}</td>
-        <td>{{ employee.startTime }}</td>
-      </tr>
-      </tbody>
-    </table>
-    <button (click)="navigateToRegister()">Register new employee</button>
+<span class="notification" *ngIf="notificationMessage">
+  <img *ngIf="notificationType === 'login'"
+    ngSrc="assets/icons/enter.png" alt="Notification Icon" height="20" width="20">
+  <img *ngIf="notificationType === 'logout'"
+    ngSrc="assets/icons/login.png" alt="Notification Icon" height="20" width="20">
+  {{ notificationMessage }}
+</span>
+
+<div class="manager-dashboard">
+  <div class="table-view">
+    <h2>Attending employees</h2>
+    <div>
+      <table>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Attending time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let employee of attendances; let i = index"
+            [class.selected]="selectedRow === i"
+            [ngClass]="{'selected': selectedRow === i}"
+            (click)="selectRow(i)">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.startTime }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="yellow" (click)="navigateToRegister()">Register new employee</button>
   </div>
 
-  <div>
-    <div *ngIf="selectedRow !== null">
-      <div *ngIf="!showAssignTaskEditor">
-        <button (click)="navigateToManageTasks()">Manage tasks</button>
-        <button (click)="showAssignTaskEditor = !showAssignTaskEditor">Assign task</button>
+  <div class="divider"></div>
+
+  <div class="selection-view">
+    <div class="handle-selection"
+         *ngIf="selectedRow !== null">
+      <div class="button-container"
+        *ngIf="!showAssignTaskEditor">
+        <button (click)="navigateToManageTasks()">
+          <img ngSrc="assets/icons/exam.png" alt="[manage]" height="60" width="60">
+          Manage tasks
+        </button>
+        <button (click)="showAssignTaskEditor = !showAssignTaskEditor">
+          <img ngSrc="assets/icons/add-post.png" alt="[assign]" height="60" width="60">
+          Assign new task
+        </button>
       </div>
-      <div *ngIf="showAssignTaskEditor">
-        <button (click)="showAssignTaskEditor = !showAssignTaskEditor">Back</button>
+      <div class="assign-task-editor"
+        *ngIf="showAssignTaskEditor">
+        <div>
+          <button class="yellow"
+                  (click)="showAssignTaskEditor = !showAssignTaskEditor">🢀</button>
+          <span>Send task to {{ attendances[selectedRow].name }}</span>
+        </div>
+        <p>Description:</p>
         <textarea [(ngModel)]="taskDescription" placeholder="Add task description"></textarea>
-        <button (click)="assignTask()">Assign task</button>
+        <p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>
+        <button class="yellow" (click)="assignTask()">Assign task</button>
       </div>
     </div>
-    <div *ngIf="selectedRow === null" class="alert">
+    <div *ngIf="selectedRow === null" class="alert"
+         [ngClass]="this.message === this.successMessage ? 'success' : ''">
+      <img *ngIf="this.message !== this.successMessage"
+        priority ngSrc="assets/icons/group.png" alt="alert" height="512" width="512">
+      <img *ngIf="this.message === this.successMessage"
+        priority ngSrc="assets/icons/checked.png" alt="alert" height="512" width="512">
       {{ message }}
     </div>
   </div>

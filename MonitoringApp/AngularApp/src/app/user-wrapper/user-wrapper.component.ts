@@ -36,4 +36,12 @@ export class UserWrapperComponent {
   getUserRoleString() {
     return this.authService.getUserRole() == UserRoles.Employee ? "employee" : "manager";
   }
+
+  getBackgroundImage() {
+    if (this.authService.getUserRole() === UserRoles.Employee) {
+      return 'url(https://us.123rf.com/450wm/khongkitwiriyachan/khongkitwiriyachan1601/khongkitwiriyachan160100063/51430007-blurred-modern-office-interior-as-background-image.jpg?ver=6)';
+    } else {
+      return 'url(https://images.pond5.com/blur-background-modern-office-interior-photo-233506781_iconl_nowm.jpeg)';
+    }
+  }
 }

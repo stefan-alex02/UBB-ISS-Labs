@@ -1,10 +1,40 @@
-<ul *ngFor="let task of tasks; let i = index"
-    [class.selected]="selectedRow === i"
-    (click)="selectedRow = selectedRow === i ? null : i">
-  <li>
-    <span>
-      {{ tasks[i].description }}
-    </span>
-    <button (click)="completeTask(task)">Complete</button>
-  </li>
-</ul>
+<span class="notification" *ngIf="notificationMessage">
+  <img *ngIf="notificationType === 'add-task'"
+       ngSrc="assets/icons/clipboard-variant.png" alt="Notification Icon" height="20" width="20">
+  <img *ngIf="notificationType === 'update-task'"
+       ngSrc="assets/icons/clipboard-update.png" alt="Notification Icon" height="20" width="20">
+  <img *ngIf="notificationType === 'delete-task'"
+        ngSrc="assets/icons/clipboard-delete.png" alt="Notification Icon" height="20" width="20">
+  {{ notificationMessage }}
+</span>
+
+<div class="dashboard-container">
+  <div *ngIf="tasks.length === 0">
+    <p>No tasks available</p>
+  </div>
+  <div class="list-div"
+    *ngIf="tasks.length > 0">
+    <h2>Ongoing tasks</h2>
+    <div class="divider"></div>
+    <div class="list-wrapper">
+      <ul>
+        <li *ngFor="let task of tasks; let i = index"
+            [class.selected]="selectedRow === i"
+            (click)="selectedRow = selectedRow === i ? null : i">
+            <div class="description-div">
+              <img ngSrc="assets/icons/task.png" alt="task" height="20" width="20"/>
+              <span>
+                {{ tasks[i].description }}
+              </span>
+            </div>
+            <div class="button-div">
+              <button (click)="completeTask(task)">
+                <img ngSrc="assets/icons/check.png" alt="check" height="15" width="15"/>
+                Mark as done
+              </button>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
